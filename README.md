@@ -1,2 +1,31 @@
-# membrane-docs
-Documents for https://github.com/MembraneFinance/membrane-core
+---
+description: >-
+  Membrane uses collateralized debt positions to synthesize leverage demand into
+  composable debt tokens that traverse the Cosmos in the form of $CDT.
+---
+
+# What is Membrane?
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+{% content-ref url="protocol/overview/" %}
+[overview](protocol/overview/)
+{% endcontent-ref %}
+
+{% content-ref url="protocol/liquidation-mechanism.md" %}
+[liquidation-mechanism.md](protocol/liquidation-mechanism.md)
+{% endcontent-ref %}
+
+{% content-ref url="protocol/risk-management.md" %}
+[risk-management.md](protocol/risk-management.md)
+{% endcontent-ref %}
+
+{% content-ref url="protocol/mbrn-tokenomics.md" %}
+[mbrn-tokenomics.md](protocol/mbrn-tokenomics.md)
+{% endcontent-ref %}
+
+## Unique Selling Points
+
+* **Bundles** enable users to create low-vol or diversified risk profiles
+* Close levered positions without manually unlooping
+* **Self liquidate** with CDT held in the Stability Pool
