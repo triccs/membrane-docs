@@ -13,13 +13,17 @@ description: Contract that holds price fetching information for assets
 pub struct InstantiateMsg {
     pub owner: Option<String>,
     pub positions_contract: Option<String>,
+pub pyth_osmosis_address: Option<String>,
 }
 ```
 
-| Key                   | Type   | Description                             |
-| --------------------- | ------ | --------------------------------------- |
-| `*owner`              | String | Contract owner, defaults to info.sender |
-| `*positions_contract` | String | Positions contract address              |
+
+
+| Key                     | Type   | Description                             |
+| ----------------------- | ------ | --------------------------------------- |
+| `*owner`                | String | Contract owner, defaults to info.sender |
+| `*positions_contract`   | String | Positions contract address              |
+| `*pyth_osmosis_address` | String | Pyth Network's oracle contract address  |
 
 &#x20;\* = optional
 
@@ -36,15 +40,32 @@ pub enum ExecuteMsg {
     UpdateConfig {
         owner: Option<String>,
         positions_contract: Option<String>,
+        osmo_usd_pyth_feed_id: Option<PriceIdentifier>,
+        pyth_osmosis_address: Option<String>,
+        pools_for_usd_par_twap: Option<Vec<TWAPPoolInfo>>,
     }
+}
+
+pub struct PriceIdentifier(
+    #[serde(with = "hex")]
+    #[schemars(with = "String")]
+    [u8; 32],
+);
+
+pub struct TWAPPoolInfo {
+    pub pool_id: u64,
+    pub base_asset_denom: String,
+    pub quote_asset_denom: String,
 }
 ```
 
-| Key                   | Type   | Description                    |
-| --------------------- | ------ | ------------------------------ |
-| `*owner`              | String | Contract owner                 |
-| `*osmosis_proxy`      | String | Osmosis Proxy contract address |
-| `*positions_contract` | String | Position's contract address    |
+| Key                       | Type            | Description                            |
+| ------------------------- | --------------- | -------------------------------------- |
+| `*owner`                  | String          | Contract owner                         |
+| `*positions_contract`     | String          | Position's contract address            |
+| `*osmo_usd_pyth_feed_id`  | PriceIdentifier | OSMO/USD Pyth price feed id            |
+| `*pyth_osmosis_address`   | String          | Pyth Network's oracle contract address |
+| `*pools_for_usd_par_twap` | TWAPPoolInfo    | Osmosis pools for OSMO/USD-par TWAP    |
 
 &#x20;\* = optional
 
@@ -73,6 +94,8 @@ pub enum AssetInfo {
 
 pub struct AssetOracleInfo {
     pub osmosis_pool_for_twap: TWAPPoolInfo,
+    pub pools_for_osmo_twap: Vec<TWAPPoolInfo>,
+    pub is_usd_par: bool,
 }
 
 pub struct TWAPPoolInfo {
