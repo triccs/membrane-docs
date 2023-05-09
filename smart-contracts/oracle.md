@@ -4,7 +4,7 @@ description: Contract that holds price fetching information for assets
 
 # Oracle
 
-* The v1 Oracle only uses Osmosis TWAPs&#x20;
+* This oracle contract queries Osmosis TWAP and Pyth network for prices. It's recurrent oracle is OSMO denominated TWAP prices that are then used later to produce USD(-par) prices. The Pyth OSMO/USD price is prioritized, if unavailable it averages USD-par TWAP prices from Osmosis to denominate prices in. This means the CDT, the Positions contract's debt token, flips betweem USD and USD-par (USDC initially) pegs depending on USD availability.
 
 ## InstantiateMsg
 
@@ -13,7 +13,7 @@ description: Contract that holds price fetching information for assets
 pub struct InstantiateMsg {
     pub owner: Option<String>,
     pub positions_contract: Option<String>,
-pub pyth_osmosis_address: Option<String>,
+    pub pyth_osmosis_address: Option<String>,
 }
 ```
 
