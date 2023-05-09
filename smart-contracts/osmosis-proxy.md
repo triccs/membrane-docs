@@ -1,7 +1,8 @@
 ---
 description: >-
   Proxy to Osmosis SDK module functions. Enforces max supplies for tokens
-  created by Membrane.
+  created by Membrane. Calculates the liquidity multiplier for Positions
+  contracts.
 ---
 
 # Osmosis Proxy
@@ -124,21 +125,25 @@ Update the contract configuration
 pub enum ExecuteMsg {
     UpdateConfig {
         owner: Option<Owner>,
+        liquidity_multiplier: Option<Decimal>, 
         add_owner: bool,
         debt_auction: Option<String>,
         positions_contract: Option<String>,
         liquidity_contract: Option<String>,
+        oracle_contract: Option<String>,
     }
 }
 ```
 
-| Key                   | Type   | Descripiton                |
-| --------------------- | ------ | -------------------------- |
-| `*owner`              | Owner  | New contract owner         |
-| `add_owner`           | bool   | Add or remove new owner    |
-| `*debt_auction`       | String | Debt Auction address       |
-| `*positions_contract` | String | Positions Contract address |
-| `*liquidity_contract` | String | Liquidity Contract address |
+| Key                     | Type    | Descripiton                                           |
+| ----------------------- | ------- | ----------------------------------------------------- |
+| `*owner`                | Owner   | New contract owner                                    |
+| `add_owner`             | bool    | Add or remove new owner                               |
+| `*liquidity_multiplier` | Decimal | Debt Token liquidity multiplier to create mint limits |
+| `*debt_auction`         | String  | Debt Auction address                                  |
+| `*positions_contract`   | String  | Positions Contract address                            |
+| `*liquidity_contract`   | String  | Liquidity Contract address                            |
+| `*oracle_contract`      | String  | Oracle contract address                               |
 
 &#x20; \* = optional
 
@@ -151,7 +156,6 @@ Edit restrictions for a contract owner
 pub enum ExecuteMsg {
     EditOwner {
         owner: String,
-        liquidity_multiplier: Option<Decimal>, 
         stability_pool_ratio: Option<Decimal>,
         non_token_contract_auth: Option<bool>,
     }
@@ -161,7 +165,6 @@ pub enum ExecuteMsg {
 | Key                        | Type    | Description                                  |
 | -------------------------- | ------- | -------------------------------------------- |
 | `owner`                    | String  | Owner in to edit                             |
-| `*liquidity_multiplier`    | Decimal | Debt Token mint limit based off liquidity    |
 | `*stability_pool_ratio`    | Decimal | Allocate SP cap space to an Owner's debt cap |
 | `*non_token_contract_auth` | bool    | Toggle authority for non-token executables   |
 
@@ -181,9 +184,11 @@ pub enum QueryMsg {
 
 pub struct Config {
     pub owners: Vec<Owner>,
+    pub liquidity_multiplier: Option<Decimal>,
     pub debt_auction: Option<Addr>,
     pub positions_contract: Option<Addr>,
     pub liquidity_contract: Option<Addr>,
+    pub oracle_contract: Option<Addr>,
 }
 ```
 
@@ -195,6 +200,20 @@ Return Owner parameters
 #[cw_serde]
 pub enum QueryMsg {
     GetOwner { owner: String }
+}
+
+
+pub struct OwnerResponse {
+    pub owner: Owner,
+    pub liquidity_multiplier: Decimal,
+}
+
+pub struct Owner {
+    pub owner: Addr,
+    pub total_minted: Uint128,
+    pub stability_pool_ratio: Option<Decimal>,
+    pub non_token_contract_auth: bool,
+    pub is_position_contract: bool,
 }
 ```
 
@@ -257,9 +276,7 @@ pub enum QueryMsg {
 }
 
 pub struct PoolStateResponse {
-    /// The various assets that be swapped. Including current liquidity.
     pub assets: Vec<Coin>,
-    /// The number of lp shares and their amount
     pub shares: Coin,
 }
 ```
