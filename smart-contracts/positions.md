@@ -588,18 +588,18 @@ Returns redemption info for viable basket positions
 #[cw_serde]
 pub enum QueryMsg {
     GetBasketRedeemability {
-        position_owner: String,
+        position_owner: Option<String>,
         start_after: Option<u128>,
         limit: Option<u32>,
     },
 }
 ```
 
-| Key              | Type   | Description                 |
-| ---------------- | ------ | --------------------------- |
-| `position_owner` | String | Specific owner to query for |
-| `*start_after`   | u128   | Premium to start after      |
-| `*limit`         | u32    | Response limiter            |
+| Key               | Type   | Description                 |
+| ----------------- | ------ | --------------------------- |
+| `*position_owner` | String | Specific owner to query for |
+| `*start_after`    | u128   | Premium to start after      |
+| `*limit`          | u32    | Response limiter            |
 
 &#x20;\* = optional
 

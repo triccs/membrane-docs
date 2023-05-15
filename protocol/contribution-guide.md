@@ -4,9 +4,7 @@ description: Non-exhaustive list of missions that benefit the community
 
 # Contribution Guide
 
-**Github Guide**:&#x20;
-
-**Branding:** [**https://github.com/MembraneFinance/Brand**](https://github.com/MembraneFinance/Brand)
+**Github Guide**: [https://github.com/MembraneFinance/membrane-core/blob/main/docs/CONTRIBUTING.md](https://github.com/MembraneFinance/membrane-core/blob/main/docs/CONTRIBUTING.md)
 
 If using information from another creator please be sure to credit/link them or the post. This benefits everyone by strengthening your relationship with other creators & getting additional attention on great content.
 
