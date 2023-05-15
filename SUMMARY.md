@@ -10,8 +10,9 @@
   * [Interest Rates](protocol/overview/interest-rates.md)
 * [Liquidation Mechanism](protocol/liquidation-mechanism.md)
 * [Risk Management](protocol/risk-management.md)
-* [MBRN Tokenomics](protocol/mbrn-tokenomics.md)
+* [Collateral Redemptions](protocol/collateral-redemptions.md)
 * [System Discounts](protocol/system-discounts.md)
+* [MBRN Tokenomics](protocol/mbrn-tokenomics.md)
 * [Potential Composability](protocol/potential-composability.md)
 * [Contribution Guide](protocol/contribution-guide.md)
 

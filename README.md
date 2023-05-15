@@ -26,6 +26,7 @@ description: >-
 
 ## Unique Selling Points
 
-* **Bundles** enable users to create low-vol or diversified risk profiles
-* Close levered positions without manually unlooping
-* **Self liquidate** with CDT held in the Stability Pool
+* [**Bundles** ](protocol/overview/asset-bundles.md)enable users to create low-vol or diversified risk profiles
+* [Close ](smart-contracts/positions.md#closeposition)levered positions without manually unlooping
+* **Self liquidate** with CDT held in the [Stability Pool](smart-contracts/stability-pool.md)
+* Collateral [redemptions ](smart-contracts/positions.md#redeemcollateral)using CDT
