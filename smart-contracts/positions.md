@@ -278,6 +278,52 @@ pub enum ExecuteMsg {
 | `position_id`    | Uint128 | ID of Position    |
 | `position_owner` | String  | Owner of Position |
 
+### `RedeemCollateral`
+
+This function allows the redemption of the debt token for collateral assets associated with Positions that have opted in for redemption. The redemption process involves calculating the redeemable amount based on the credit amount, collateral premium, and collateral ratios. The collateral assets are then transferred to the sender's address, redeemed credit subtracted from the Position's debt and any excess credit is returned to the sender as well.
+
+```
+#[cw_serde]
+pub enum ExecuteMsg {
+    RedeemCollateral {
+        max_collateral_premium: Option<u128>,
+    },
+}
+```
+
+| Key                       | Type | Description                                                             |
+| ------------------------- | ---- | ----------------------------------------------------------------------- |
+| `*max_collateral_premium` | u128 | Max collateral premium you're willing to pay when redeeming debt tokens |
+
+&#x20;\* = optional
+
+### `EditRedeemability`
+
+This function allows for the flexible editing and enabling of debt token redemption for specific positions owned by an address, with options to modify redeemability, premiums, maximum loan repayment, and restricted collateral assets.
+
+```
+#[cw_serde]
+pub enum ExecuteMsg {
+    EditRedeemability {
+        position_ids: Vec<Uint128>,
+        redeemable: Option<bool>,
+        premium: Option<u128>,
+        max_loan_repayment: Option<Decimal>,
+        restricted_collateral_assets: Option<Vec<String>>,
+    },
+}
+```
+
+| Key                             | Type          | Description                                                         |
+| ------------------------------- | ------------- | ------------------------------------------------------------------- |
+| `position_ids`                  | Vec\<Uint128> | Positions to act on                                                 |
+| `*redeemable`                   | bool          | Toggle to add or remove redeemability                               |
+| `*premium`                      | u128          | Desired premium for the Position's redeemable collateral            |
+| `*max_loan_repayment`           | Decimal       | Max % of the outstanding loan that can be used to redeem collateral |
+| `*restricted_collateral_assets` | Vec\<String>  | Collateral assets restricted from redemption, swaps the full list.  |
+
+&#x20;\* = optional
+
 ### `MintRevenue`
 
 Mint pending revenue from the contract's Basket, only usable by config
@@ -533,6 +579,29 @@ pub struct PositionResponse {
 | `position_id` | Uint128 | ID of Position                   |
 | `basket_id`   | Uint128 | ID of Basket the Position is in  |
 | `user`        | String  | User that owns position          |
+
+### `GetBasketRedeemability`
+
+Returns redemption info for viable basket positions
+
+```
+#[cw_serde]
+pub enum QueryMsg {
+    GetBasketRedeemability {
+        position_owner: String,
+        start_after: Option<u128>,
+        limit: Option<u32>,
+    },
+}
+```
+
+| Key              | Type   | Description                 |
+| ---------------- | ------ | --------------------------- |
+| `position_owner` | String | Specific owner to query for |
+| `*start_after`   | u128   | Premium to start after      |
+| `*limit`         | u32    | Response limiter            |
+
+&#x20;\* = optional
 
 ### `GetBasketPositions`
 
