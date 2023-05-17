@@ -7,6 +7,7 @@ description: Membrane Governance contract
 * Governance can execute any arbitrary message whose proposals have a minimum voting period of 7 days
 * &#x20;Voting power per proposal is based on power when the proposal was created.
 * Expedited Proposals can be called by Addresses w/ a [vested allocation ](vesting.md)& should be used only for time-sensitive emergencies
+* Proposals can be aligned with by stakers to become active&#x20;
 
 ## InstantiateMsg
 
