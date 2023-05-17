@@ -41,7 +41,7 @@ _Ex: If a position's liquidation point is 80% LTV and the position gets to 81%, 
 
 The fee will keep increasing until a liquidator deems its profitable/desirable to liquidate, but if one waits too long it may lose the chance to capture the fee. This mechanism finds the lowest viable liquidation fee which benefits the user and the overall market.&#x20;
 
-**Note: There is a minimum fee that goes to MBRN stakers**\
+**Note: There is a configurable 1% fee that goes to MBRN stakers**\
 
 
 Additional Sources:&#x20;
