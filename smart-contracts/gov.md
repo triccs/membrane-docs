@@ -7,7 +7,7 @@ description: Membrane Governance contract
 * Governance can execute any arbitrary message whose proposals have a minimum voting period of 7 days
 * &#x20;Voting power per proposal is based on power when the proposal was created.
 * Expedited Proposals can be called by Addresses w/ a [vested allocation ](vesting.md)& should be used only for time-sensitive emergencies
-* Proposals can be aligned with by stakers to become active&#x20;
+* Proposals can be aligned with by stakers to become active, any pending proposal can be deleted within 1 day
 
 ## InstantiateMsg
 
@@ -276,6 +276,46 @@ pub struct Config {
 
 ```
 
+### `PendingProposals`
+
+Return the current list of pending proposals
+
+```
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum QueryMsg {
+    PendingProposals {
+        start: Option<u64>,
+        limit: Option<u32>,
+    }
+}
+
+pub struct ProposalResponse {
+    pub proposal_id: Uint64,
+    pub submitter: Addr,
+    pub status: ProposalStatus,
+    pub aligned_power: Uint128,
+    pub for_power: Uint128,
+    pub against_power: Uint128,
+    pub amendment_power: Uint128,
+    pub removal_power: Uint128,
+    pub start_block: u64,
+    pub start_time: u64,
+    pub end_block: u64,
+    pub delayed_end_block: u64,
+    pub expiration_block: u64,
+    pub title: String,
+    pub description: String,
+    pub messages: Option<Vec<ProposalMessage>>,
+    pub link: Option<String>,
+}
+```
+
+| Key      | Type | Description                     |
+| -------- | ---- | ------------------------------- |
+| `*start` | u64  | Id from which to start querying |
+| `*limit` | u32  | Response Limiter                |
+
 ### `Proposals`
 
 Return the current list of proposals
@@ -311,10 +351,10 @@ pub struct ProposalResponse {
 }
 ```
 
-| Key      | Type | Description                       |
-| -------- | ---- | --------------------------------- |
-| `*start` | u64  | Id from which to start querying   |
-| `*limit` | u32  | The amount of proposals to return |
+| Key      | Type | Description                     |
+| -------- | ---- | ------------------------------- |
+| `*start` | u64  | Id from which to start querying |
+| `*limit` | u32  | Response Limiter                |
 
 &#x20;\* = optional
 
