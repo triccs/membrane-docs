@@ -6,7 +6,7 @@ description: Membrane Governance contract
 
 * Governance can execute any arbitrary message whose proposals have a minimum voting period of 7 days
 * &#x20;Voting power per proposal is based on power when the proposal was created.
-* Expedited Proposalscan be called by Addresses w/ a [vested allocation ](vesting.md)& should be used only for time-sensitive emergencies
+* Expedited Proposals can be called by Addresses w/ a [vested allocation ](vesting.md)& should be used only for time-sensitive emergencies
 
 ## InstantiateMsg
 
@@ -57,21 +57,20 @@ pub enum ExecuteMsg {
         description: String,
         link: Option<String>,
         messages: Option<Vec<ProposalMessage>>,
-        //If from the builder's contract
         receiver: Option<String>,
         expedited: bool,
     }
 }
 ```
 
-| Key           | Type                  | Description                                      |
-| ------------- | --------------------- | ------------------------------------------------ |
-| `title`       | String                | Proposal title                                   |
-| `description` | String                | Proposal description                             |
-| `*link`       | String                | Proposal whitelisted link                        |
-| `messages`    | Vec\<ProposalMessage> | Proposal executeble messages                     |
-| `receiver`    | String                | If from Builder's contract, add Receiver address |
-| `expedited`   | bool                  | Expedited Proposal toggle                        |
+| Key           | Type                  | Description                                    |
+| ------------- | --------------------- | ---------------------------------------------- |
+| `title`       | String                | Proposal title                                 |
+| `description` | String                | Proposal description                           |
+| `*link`       | String                | Proposal whitelisted link                      |
+| `messages`    | Vec\<ProposalMessage> | Proposal executeble messages                   |
+| `receiver`    | String                | If from vesting contract, add Receiver address |
+| `expedited`   | bool                  | Expedited Proposal toggle                      |
 
 &#x20;\* = optional
 
@@ -93,14 +92,16 @@ pub enum ExecuteMsg {
 pub enum ProposalVoteOption {
     For,
     Against,
+    Amend, 
+    Remove,
 }
 ```
 
-| Key           | Type               | Description                                      |
-| ------------- | ------------------ | ------------------------------------------------ |
-| `proposal_id` | u64                | Proposal identifier                              |
-| `vote`        | ProposalVoteOption | Vote Option                                      |
-| `*receiver`   | String             | If from Builder's contract, add Receiver address |
+| Key           | Type               | Description                                    |
+| ------------- | ------------------ | ---------------------------------------------- |
+| `proposal_id` | u64                | Proposal identifier                            |
+| `vote`        | ProposalVoteOption | Vote Option                                    |
+| `*receiver`   | String             | If from vesting contract, add Receiver address |
 
 &#x20;\* = optional
 
@@ -293,6 +294,8 @@ pub struct ProposalResponse {
     pub status: ProposalStatus,
     pub for_power: Uint128,
     pub against_power: Uint128,
+    pub amendment_power: Uint128,
+    pub removal_power: Uint128,
     pub start_block: u64,
     pub start_time: u64,
     pub end_block: u64,
@@ -359,6 +362,8 @@ pub struct ProposalResponse {
     pub status: ProposalStatus,
     pub for_power: Uint128,
     pub against_power: Uint128,
+    pub amendment_power: Uint128,
+    pub removal_power: Uint128,
     pub start_block: u64,
     pub start_time: u64,
     pub end_block: u64,
