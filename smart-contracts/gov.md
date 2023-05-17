@@ -94,6 +94,7 @@ pub enum ProposalVoteOption {
     Against,
     Amend, 
     Remove,
+    Align,
 }
 ```
 
@@ -292,6 +293,7 @@ pub struct ProposalResponse {
     pub proposal_id: Uint64,
     pub submitter: Addr,
     pub status: ProposalStatus,
+    pub aligned_power: Uint128,
     pub for_power: Uint128,
     pub against_power: Uint128,
     pub amendment_power: Uint128,
@@ -360,6 +362,7 @@ pub struct ProposalResponse {
     pub proposal_id: Uint64,
     pub submitter: Addr,
     pub status: ProposalStatus,
+    pub aligned_power: Uint128,
     pub for_power: Uint128,
     pub against_power: Uint128,
     pub amendment_power: Uint128,
@@ -395,6 +398,9 @@ pub struct ProposalVotesResponse {
     pub proposal_id: u64,
     pub for_power: Uint128,
     pub against_power: Uint128,
+    pub amendment_power: Uint128,
+    pub removal_power: Uint128,
+    pub aligned_power: Uint128,
 }
 ```
 
