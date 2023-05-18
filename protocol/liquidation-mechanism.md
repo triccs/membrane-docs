@@ -19,20 +19,6 @@ As a final measure, any collateral positions that can't get liquidated by the fi
 \
 **Note: In the case of errors repaying from the liquidation contracts, the error will trigger the collateral to go through the DEX router to ensure all liquidations can be executed by 1 external call of the initial liquidation function.**
 
-### System Benefits
-
-Having pools of **CDT** on standby to liquidate increases the efficiency of the market's demand in smoothing our liquidation process. This provides the mechanism a larger buffer for harsh liquidation periods and reduces the protocol's direct effect on external markets. The wallet distribution of the **LQ** allows a more diverse user base to obtain assets, increasing the % sent to hodlers.
-
-If the liquidation pools are ever empty, they can also be used to facilitate flash loan based liquidations.
-
-**Note: Any user funds in the Stability Pool will be used to repay said user's vaults if liquidated. This doesn't protect the user from the external liquidator & protocol fees.**
-
-Additional Sources:&#x20;
-
-1\) [https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol](https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol)\
-2\) [https://docs.liquity.org/faq/stability-pool-and-liquidations](https://docs.liquity.org/faq/stability-pool-and-liquidations)\
-3\) [https://docs.anchorprotocol.com/protocol/loan-liquidation](https://docs.anchorprotocol.com/protocol/loan-liquidation)
-
 ### Liquidator Fees
 
 Smart contracts aren't autonomous so they need to be called by an external source. These calls will be incentivized by a liquidation fee determined by free market mechanics. The available fee grows in correlation to the vault's insolvency
@@ -48,4 +34,20 @@ Additional Sources:&#x20;
 
 1\)[ ](https://docs.euler.finance/developers/architecture#front-running-protection)[https://docs.euler.finance/developers/architecture#front-running-protection](https://docs.euler.finance/developers/architecture#front-running-protection)\
 2\) [https://twitter.com/euler\_mab/status/1537091423748517889](https://twitter.com/euler\_mab/status/1537091423748517889)
+
+### System Benefits
+
+Having pools of **CDT** on standby to liquidate increases the efficiency of the market's demand in smoothing our liquidation process. This provides the mechanism a larger buffer for harsh liquidation periods and reduces the protocol's direct effect on external markets. The wallet distribution of the **LQ** allows a more diverse user base to obtain assets, increasing the % sent to hodlers.
+
+If the liquidation pools are ever empty, they can also be used to facilitate flash loan based liquidations.
+
+**Note: Any user funds in the Stability Pool will be used to repay said user's vaults if liquidated. This doesn't protect the user from the external liquidator & protocol fees.**
+
+The liquidation fee is collected and distributed to an [Auction](../smart-contracts/mbrn-auction.md#startauction) starting an hour later. In the meantime any bad debt accrued will get auctioned off in return for MBRN, inflating supply. Scheduling the fee auctions after the debt auctions induces potential buy pressure after potential sell pressure.&#x20;
+
+Additional Sources:&#x20;
+
+1\) [https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol](https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol)\
+2\) [https://docs.liquity.org/faq/stability-pool-and-liquidations](https://docs.liquity.org/faq/stability-pool-and-liquidations)\
+3\) [https://docs.anchorprotocol.com/protocol/loan-liquidation](https://docs.anchorprotocol.com/protocol/loan-liquidation)
 
