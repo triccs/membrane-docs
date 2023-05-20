@@ -316,6 +316,7 @@ pub struct TokenInfoResponse {
     pub denom: String,
     pub current_supply: Uint128,
     pub max_supply: Uint128,
+    pub burned_supply: Uint128,
 }
 ```
 
