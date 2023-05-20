@@ -78,7 +78,7 @@ pub enum ExecuteMsg {
 
 ### `BurnTokens`
 
-Burn tokens&#x20;
+Burn tokens from a denom owned by the contract
 
 ```
 #[cw_serde]
@@ -96,6 +96,21 @@ pub enum ExecuteMsg {
 | `denom`             | String  | Token denom to burn         |
 | `amount`            | Uint128 | Amount to mint              |
 | `burn_from_address` | String  | Address to burn tokens from |
+
+### `CreateOsmosisGauge`
+
+Create an incentive gauge for an Osmosis pool
+
+```
+#[cw_serde]
+pub enum ExecuteMsg {
+    CreateOsmosisGauge { gauge_msg: MsgCreateGauge }
+}
+```
+
+| Key         | Type           | Description                          |
+| ----------- | -------------- | ------------------------------------ |
+| `gauge_msg` | MsgCreateGauge | CreateGauge message from osmosis-std |
 
 ### `EditTokenMaxSupply`
 
