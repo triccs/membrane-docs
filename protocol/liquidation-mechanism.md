@@ -43,7 +43,7 @@ If the liquidation pools are ever empty, they can also be used to facilitate fla
 
 **Note: Any user funds in the Stability Pool will be used to repay said user's vaults if liquidated. This doesn't protect the user from the external liquidator & protocol fees.**
 
-The liquidation fee is collected and distributed to an [Auction](../smart-contracts/mbrn-auction.md#startauction) starting an hour later. In the meantime any bad debt accrued will get auctioned off in return for MBRN, inflating supply. Scheduling the fee auctions after the debt auctions induces potential buy pressure after potential sell pressure.&#x20;
+The liquidation fee is collected and distributed to an [Auction](../smart-contracts/mbrn-auction.md#startauction) starting an hour later. In the meantime any bad debt accrued will get auctioned off in return for MBRN, inflating supply. Scheduling the fee auctions after the debt auctions induces potential buy pressure after potential sell pressure, i.e. a mint followed by a burn to counteract.
 
 Additional Sources:&#x20;
 
