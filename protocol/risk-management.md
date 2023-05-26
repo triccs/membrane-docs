@@ -25,7 +25,7 @@ If there is ever a shortfall event that results in more bad debt than pending re
 
 ### Oracles
 
-The Position's contract price feed is updated at an interval set by [`oracle_time_limit`](../smart-contracts/positions.md#config). On Osmosis at 6s block times, every 6s is an extra block the attacker needs to manipulate price for, decreasing the cost but increasing external risks of the manipulation. Starting at 60s, an attacker would need to hold an incongruent price for 10 blocks which equates to a cost of [**\~130 times the liquidity in the pool**](https://members.delphidigital.io/reports/arithmetic-or-geometric-mean-twap-which-one-to-use) to alter the price by 20% upwards as well as being exposed to MEV type risks.
+The Position's contract price feed is updated at an interval set by [`oracle_time_limit`](../smart-contracts/positions.md#config). On Osmosis at 6s block times, every 6s is an extra block the attacker needs to manipulate price for, decreasing the cost but increasing external risks of the manipulation. Starting at 60s, an attacker would need to hold an incongruent price for 10 blocks which equates to a cost of [**\~130 times the liquidity in the pool**](https://delphilabs.medium.com/which-one-should-you-use-arithmetic-or-geometric-mean-twap-ded01532bf49) to alter the price by 20% upwards as well as being exposed to MEV type risks.
 
 ### State Assurance
 
