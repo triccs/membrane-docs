@@ -25,8 +25,6 @@ pub struct InstantiateMsg {
     pub fee_wait_period: Option<u64>,  
     pub unstaking_period: Option<u64>,    
     pub mbrn_denom: String,
-    pub dex_router: Option<String>,
-    pub max_spread: Option<Decimal>,
 }
 
 pub struct StakeDistribution {
@@ -35,19 +33,7 @@ pub struct StakeDistribution {
 }
 ```
 
-| Key                   | Type              | Description                                                 |
-| --------------------- | ----------------- | ----------------------------------------------------------- |
-| `*owner`              | String            | Contract owner                                              |
-| `*positions_contract` | String            | Positions contract address                                  |
-| `*auction_contract`   | String            | Auction contract address                                    |
-| `*vesting_contract`   | String            | Vesting contract address                                    |
-| `*osmosis_proxy`      | String            | Osmosis Proxy contract address                              |
-| `*incentive_schedule` | StakeDistribution | Desired staking rate schedule, defaults to 10% for 3 months |
-| `*fee_wait_period`    | u64               | Waiting period before stakers earn fees from FeeEvents      |
-| `*unstaking_period`   | u64               | Unstaking period in days, defaults to 3 days                |
-| `mbrn_denom`          | String            | MBRN full denom                                             |
-| `*dex_router`         | String            | DEX Router contract address                                 |
-| `*max_spread`         | Decimal           | Max spread for asset routing, defaults to 10%               |
+<table><thead><tr><th width="254">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule, defaults to 10% for 3 months</td></tr><tr><td><code>*fee_wait_period</code></td><td>u64</td><td>Waiting period before stakers earn fees from FeeEvents</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days, defaults to 3 days </td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -70,26 +56,12 @@ pub enum ExecuteMsg {
         mbrn_denom: Option<String>,  
         incentive_schedule: Option<StakeDistribution>,
         fee_wait_period: Option<u64>,     
-        unstaking_period: Option<u64>,            
-        dex_router: Option<String>,
-        max_spread: Option<Decimal>,
+        unstaking_period: Option<u64>,  
     }
 }
 ```
 
-| Key                   | Type              | Description                                            |
-| --------------------- | ----------------- | ------------------------------------------------------ |
-| `*owner`              | String            | Contract owner                                         |
-| `*positions_contract` | String            | Positions contract address                             |
-| `*auction_contract`   | String            | Auction contract address                               |
-| `*vesting_contract`   | String            | Vesting contract address                               |
-| `*osmosis_proxy`      | String            | Osmosis Proxy contract address                         |
-| `*incentive_schedule` | StakeDistribution | Desired staking rate schedule                          |
-| `*fee_wait_period`    | u64               | Waiting period before stakers earn fees from FeeEvents |
-| `*unstaking_period`   | u64               | Unstaking period in days                               |
-| `*mbrn_denom`         | String            | MBRN full denom                                        |
-| `*dex_router`         | String            | DEX Router contract address                            |
-| `*max_spread`         | Decimal           | Max spread for asset routing                           |
+<table><thead><tr><th width="248">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule</td></tr><tr><td><code>*fee_wait_period</code></td><td>u64</td><td>Waiting period before stakers earn fees from FeeEvents</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days</td></tr><tr><td><code>*mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -160,20 +132,13 @@ Claim all staking rewards for info.sender
 #[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
     ClaimRewards { 
-        claim_as_native: Option<String>, //Native FullDenom
-        claim_as_cw20: Option<String>, //Contract Address
         send_to: Option<String>,
         restake: bool,
     }
 }
 ```
 
-| Key                | Type   | Description                              |
-| ------------------ | ------ | ---------------------------------------- |
-| `*claim_as_native` | String | Native token full denom to claim fees as |
-| `*claim_as_cw20`   | String | Cw20 token address to claim fees as      |
-| `*send_to`         | String | Address to send rewards to               |
-| `restake`          | bool   | Restake MBRN toggle                      |
+<table><thead><tr><th width="225">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*send_to</code></td><td>String</td><td>Address to send rewards to</td></tr><tr><td><code>restake</code></td><td>bool</td><td>Restake MBRN toggle</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -223,8 +188,6 @@ pub struct ConfigResponse {
     pub fee_wait_period: String,
     pub unstaking_period: String,    
     pub mbrn_denom: String,
-    pub dex_router: String,
-    pub max_spread: String, 
 }
 ```
 
