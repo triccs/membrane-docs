@@ -1,12 +1,12 @@
 ---
 description: >-
   Contract that auctions discounted MBRN to repay bad debts in the Positions
-  contract or discounted fees that burns MBRN.
+  contract or discounted fees swapped for a governance desired asset.
 ---
 
 # Auction
 
-Auctions are initialized by the [Positions ](positions.md)contract and [Governance ](gov.md). The discount increases overtime to ensure the auction is fulfilled.
+Auctions are initiated by the [Positions ](positions.md)contract and [Governance ](gov.md). The discount increases overtime to ensure the auction is fulfilled.
 
 ## InstantiateMsg
 
@@ -25,17 +25,7 @@ pub struct InstantiateMsg {
 }
 ```
 
-| Key                           | Type    | Description                                                    |
-| ----------------------------- | ------- | -------------------------------------------------------------- |
-| `*owner`                      | String  | Contract owner                                                 |
-| `oracle_contract`             | String  | Oracle contract address                                        |
-| `osmosis_proxy`               | String  | Osmosis Proxy address                                          |
-| `positions_contract`          | String  | Position's contract address                                    |
-| `twap_timeframe`              | u64     | Timeframe for TWAPs                                            |
-| `mbrn_denom`                  | String  | MBRN token full denom                                          |
-| `initial_discount`            | Decimal | Starting discount of auctions                                  |
-| `discount_increase_timeframe` | u64     | Timeframe in which the discount is increased                   |
-| `discount_increase`           | Decimal | Increase in discount per unit of discount\_increase\_timeframe |
+<table><thead><tr><th width="231">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>oracle_contract</code></td><td>String</td><td>Oracle contract address</td></tr><tr><td><code>osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy address</td></tr><tr><td><code>positions_contract</code></td><td>String</td><td>Position's contract address</td></tr><tr><td><code>twap_timeframe</code></td><td>u64</td><td>Timeframe for TWAPs</td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN token full denom</td></tr><tr><td><code>initial_discount</code></td><td>Decimal</td><td>Starting discount of auctions</td></tr><tr><td><code>discount_increase_timeframe</code></td><td>u64</td><td>Timeframe in which the discount is increased</td></tr><tr><td><code>discount_increase</code></td><td>Decimal</td><td>Increase in discount per unit of discount_increase_timeframe</td></tr></tbody></table>
 
 &#x20;\* = optional
 

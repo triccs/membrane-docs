@@ -27,7 +27,7 @@ _Ex: If a position's liquidation point is 80% LTV and the position gets to 81%, 
 
 The fee will keep increasing until a liquidator deems its profitable/desirable to liquidate, but if one waits too long it may lose the chance to capture the fee. This mechanism finds the lowest viable liquidation fee which benefits the user and the overall market.&#x20;
 
-**Note: There is a configurable 1% fee that goes to MBRN stakers**\
+**Note: There is a configurable 1% fee controlled by governance**\
 
 
 Additional Sources:&#x20;
@@ -43,7 +43,7 @@ If the liquidation pools are ever empty, they can also be used to facilitate fla
 
 **Note: Any user funds in the Stability Pool will be used to repay said user's vaults if liquidated. This doesn't protect the user from the external liquidator & protocol fees.**
 
-The liquidation fee is collected and distributed to an [Auction](../smart-contracts/mbrn-auction.md#startauction) starting an hour later. In the meantime any bad debt accrued will get auctioned off in return for MBRN, inflating supply. Scheduling the fee auctions after the debt auctions induces potential buy pressure after potential sell pressure, i.e. a mint followed by a burn to counteract.
+Witholding revenue could be a very powerful strategic decision. Fee [auctions ](../smart-contracts/mbrn-auction.md)allow the DAO to convert all liquidation fees into a single desired asset. Combine that with **CDT**-denominated revenue from interest rates and the protocol has both sides of any **CDT LP** they need. One of the most efficient ways to use this is to build Protocol Owned Liquidity in order to eliminate the need for liquidity incentives long term, reducing the business cost of **CDT** to 0.
 
 Additional Sources:&#x20;
 
