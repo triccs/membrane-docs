@@ -1,5 +1,11 @@
 # Risk Management
 
+### Fiat Token Risk Mitigation
+
+Fiat-backed tokens like USDC have 2 main existential risks: _**blacklisting**_ & _**bank insolvencies**_. Assuming fiat tokens will all be minted on some external chain in the Cosmos (ex: [Noble](https://twitter.com/noble\_xyz?s=20)), blacklisting will blacklist entire chains which allows any collateral to still be liquidated if holders are selling due to the blacklist. If there are no liquidations because liquidity is pulled faster than the sales are made, those tokens are frozen & the protocol will have to recapitalize the system with the [Operating Fund](risk-management.md#operating-fund) or a [**MBRN** auction](risk-management.md#mbrn-auction). This is why no matter what, total fiat exposure must be minimized in order to minimize potential insolvencies that the token holders are responsible for.
+
+Bank insolvencies or fear thereof will be reflected in token price of the collateral. Due to Membrane's oracles which use [Pyth ](https://docs.pyth.network/pythnet-price-feeds/cosmwasm)to fetch a USD price for collateral, these fiat tokens will be liquidatible in the extent of an emergency scenario unlike collateral protocols that entrench them in a PSM or use static prices.
+
 ### Collateral Parameters
 
 Each unique asset has a **debt cap** (CDT mint cap) and a **supply cap**. The **debt cap** is based off the proportional value of the given asset within Membrane's TVL. The **supply cap** is a TVL ratio for each asset set by governance. There is also the ability to add **multi-asset supply caps** to group risks. This allows a customizable composition of collateral risk, minimizing the effects of bad debt or a malicious token attack to the caps assigned to the asset.\
@@ -13,19 +19,19 @@ Risk type -> Solved By:\
 \
 An amalgamation of them all will factor into the interest rate ranges decided by governance. In general, rates increase when caps are near their respective set ratios to incentivize correction and vice versa.
 
+### Oracles
+
+The Position's contract price feed is updated at an interval set by [`oracle_time_limit`](../smart-contracts/positions.md#config). On Osmosis at 6s block times, every 6s is an extra block the attacker needs to manipulate price for, decreasing the cost but increasing external (MEV) risks for the manipulator. Starting at 60s, an attacker would need to hold an incongruent price for 10 blocks which equates to a cost of [**\~130 times the liquidity in the pool**](https://delphilabs.medium.com/which-one-should-you-use-arithmetic-or-geometric-mean-twap-ded01532bf49) to alter the price by 20% upwards as well as being exposed to the aforementioned MEV in the form of price stabilization between similar pools.
+
 ### Operating Fund
 
-Optionally funded by protocol revenue, the operating fund is used to cover bad debt generated due to inefficient liquidations during harsh market conditions. This fund isn't a separate contract, instead its the quantity of pending revenue earned by the system that is yet to be "redeemed".\
+Optionally funded by protocol revenue, the operating fund is used to cover bad debt generated due to inefficient liquidations during harsh market conditions or blacklisted collateral. This fund isn't a separate contract, instead its the quantity of pending revenue earned by the system that is yet to be "redeemed".\
 \
-While not covering liabilities, it acts as a living safety net to give user extra insurance that the protocol will remain solvent and can be used for funding that doesn't require incentive alignment.
+While not covering liabilities, it acts as a living safety net to give users extra insurance that the protocol will remain solvent and can be used for funding that doesn't require incentive alignment.
 
 ### MBRN Auction
 
 If there is ever a shortfall event that results in more bad debt than pending revenue in the Safety Fund, **MBRN** will be auctioned off at a discount to recapitalize the system.
-
-### Oracles
-
-The Position's contract price feed is updated at an interval set by [`oracle_time_limit`](../smart-contracts/positions.md#config). On Osmosis at 6s block times, every 6s is an extra block the attacker needs to manipulate price for, decreasing the cost but increasing external risks of the manipulation. Starting at 60s, an attacker would need to hold an incongruent price for 10 blocks which equates to a cost of [**\~130 times the liquidity in the pool**](https://delphilabs.medium.com/which-one-should-you-use-arithmetic-or-geometric-mean-twap-ded01532bf49) to alter the price by 20% upwards as well as being exposed to MEV type risks.
 
 ### State Assurance
 
