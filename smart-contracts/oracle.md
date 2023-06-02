@@ -13,17 +13,17 @@ description: Contract that holds price fetching information for assets
 pub struct InstantiateMsg {
     pub owner: Option<String>,
     pub positions_contract: Option<String>,
-    pub pyth_osmosis_address: Option<String>,
+    pub osmosis_proxy_contract: Option<String>,
 }
 ```
 
 
 
-| Key                     | Type   | Description                             |
-| ----------------------- | ------ | --------------------------------------- |
-| `*owner`                | String | Contract owner, defaults to info.sender |
-| `*positions_contract`   | String | Positions contract address              |
-| `*pyth_osmosis_address` | String | Pyth Network's oracle contract address  |
+| Key                       | Type   | Description                             |
+| ------------------------- | ------ | --------------------------------------- |
+| `*owner`                  | String | Contract owner, defaults to info.sender |
+| `*positions_contract`     | String | Positions contract address              |
+| `*osmosis_proxy_contract` | String | Osmosis Proxy contract                  |
 
 &#x20;\* = optional
 
@@ -40,6 +40,7 @@ pub enum ExecuteMsg {
     UpdateConfig {
         owner: Option<String>,
         positions_contract: Option<String>,
+        osmosis_proxy_contract: Option<String>,
         osmo_usd_pyth_feed_id: Option<PriceIdentifier>,
         pyth_osmosis_address: Option<String>,
         pools_for_usd_par_twap: Option<Vec<TWAPPoolInfo>>,
@@ -63,6 +64,7 @@ pub struct TWAPPoolInfo {
 | ------------------------- | --------------- | -------------------------------------- |
 | `*owner`                  | String          | Contract owner                         |
 | `*positions_contract`     | String          | Position's contract address            |
+| `*osmosis_proxy_contract` | String          | Osmosis Proxy contract                 |
 | `*osmo_usd_pyth_feed_id`  | PriceIdentifier | OSMO/USD Pyth price feed id            |
 | `*pyth_osmosis_address`   | String          | Pyth Network's oracle contract address |
 | `*pools_for_usd_par_twap` | TWAPPoolInfo    | Osmosis pools for OSMO/USD-par TWAP    |
