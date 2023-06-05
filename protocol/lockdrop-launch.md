@@ -10,4 +10,4 @@ For launch, Membrane has 10M tokens up for grabs in the lockdrop that will linea
 
 At the creation of the 4 pools, the CDT/OSMO & CDT/(axl)USDC pools will receive incentives, 1.5M/6months & 500k/3months respectively.
 
-**Note:** The protocol is live at launch, so any testing can be done before investment
+**Note:** The protocol is live at launch, so any testing can be done beforehand
