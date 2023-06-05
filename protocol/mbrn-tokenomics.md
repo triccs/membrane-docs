@@ -1,10 +1,10 @@
 ---
-description: MBRN is the network token for Membrane
+description: MBRN is the liquidity backstop for the Membrane network
 ---
 
 # MBRN Tokenomics
 
-The total supply of MBRN will be 100 million MBRN, with 90% allocated to the community, and 10% vested to pre-launch contributors.
+The total supply of MBRN will be 100 million MBRN, with 90% allocated to the community, and 10% vested to pre-launch contributors (2 year cliff, 1 linear).
 
 ### Governance
 
