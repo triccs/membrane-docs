@@ -15,6 +15,7 @@
 * [MBRN Tokenomics](protocol/mbrn-tokenomics.md)
 * [Potential Composability](protocol/potential-composability.md)
 * [Contribution Guide](protocol/contribution-guide.md)
+* [Lockdrop (Launch)](protocol/lockdrop-launch.md)
 
 ## Smart Contracts
 
