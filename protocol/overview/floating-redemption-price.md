@@ -9,11 +9,9 @@ Membrane uses logic similar to a PID, pioneered by Reflexer Labs, which we call 
 
 The **redemption price** may not directly affect market price, but it **influences the health of all vaults.**&#x20;
 
-This system adopts a wider volatility range for long-term system optimality, decreasing the reliance on centralized collateral (i.e. existential risk). Some have called negative redemption rates, "paying for decentralization".
+This system adopts a wider volatility range for long-term system optimality, decreasing the reliance on centralized collateral (i.e. existential risk). Some have called negative redemption rates, "paying for decentralization". Without low volatility collateral, typically USDC, the peg trends above 1.00. Redemption rates & low volatility assets are tools to help the system repeg in an attempt to remove single reliance on either.
 
-Without low volatility collateral, typically USDC, the peg trends above 1.00. Redemption rates & low volatility assets are tools to help the system repeg in an attempt to remove single reliance on either.
-
-
+The existance of a floating peg also enables interesting peg denomination functionality, though not launch applicable. The system is built to host multiple Baskets of collateral types & parameters, allowing for **CDT** to have loans denominated in multiple currencies or collateral type specific Baskets to ease programmability. Combine this with the dynamic supply cap & redemption price rates and **CDT** has the capability to be pegged to a basket of market driven Units of Account
 
 _Additional resources for understanding of the first floating peg system RAI:_
 
