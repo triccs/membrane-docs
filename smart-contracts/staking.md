@@ -142,6 +142,56 @@ pub enum ExecuteMsg {
 
 &#x20;\* = optional
 
+### `UpdateDelegations`
+
+Delegate **MBRN** to a Governator
+
+```
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ExecuteMsg {
+    UpdateDelegations {
+        governator_addr: Option<String>,
+        mbrn_amount: Option<Uint128>,
+        delegate: Option<bool>,
+        fluid: Option<bool>,
+        commission: Option<Decimal>,
+    }
+}
+```
+
+| Key                | Type    | Description                                                                  |
+| ------------------ | ------- | ---------------------------------------------------------------------------- |
+| `*governator_addr` | String  | Governator to act upon                                                       |
+| `*mbrn_amount`     | Uint128 | Amount to act upon                                                           |
+| `*delegate`        | bool    | To delegate or undelegate                                                    |
+| `*fluid`           | bool    | Toggle fluidity of delegation "Can the governator delegate your delegation?" |
+| `*commission`      | Decimal | Governator's commission rate                                                 |
+
+\* = optional
+
+### `DelegateFluidDelegations`
+
+Delegate fluidly delegated **MBRN.** Once delegated, the **MBRN** can't be undelegated by the governator, only the initial staker.&#x20;
+
+```
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ExecuteMsg {
+    DelegateFluidDelegations {
+        governator_addr: String,
+        mbrn_amount: Option<Uint128>,
+    }
+}
+```
+
+| Key                | Type    | Description            |
+| ------------------ | ------- | ---------------------- |
+| `*governator_addr` | String  | Governator to act upon |
+| `*mbrn_amount`     | Uint128 | Amount to act upon     |
+
+&#x20;\* = optional
+
 ### `DepositFee`
 
 Positions contract deposit's liquidation fees to be distributed to stakers
@@ -215,16 +265,16 @@ pub struct StakerResponse {
 | -------- | ------ | ---------------- |
 | `staker` | String | Staker's address |
 
-### `StakerRewards`
+### `UserRewards`
 
-Returns Staker rewards
+Returns user (_staker and delegate_) rewards
 
 ```
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    StakerRewards { 
-        staker: String,    
+    UserRewards { 
+        user: String,    
     }
 }
 
@@ -234,9 +284,9 @@ pub struct RewardsResponse {
 }
 ```
 
-| Key      | Type   | Description      |
-| -------- | ------ | ---------------- |
-| `staker` | String | Staker's address |
+| Key    | Type   | Description      |
+| ------ | ------ | ---------------- |
+| `user` | String | Staker's address |
 
 ### `Staked`
 
@@ -272,6 +322,30 @@ pub struct StakeDeposit {
 | `*start_after` | u64  | Start after a block time in seconds   |
 | `*end_before`  | u64  | End before a block time in seconds    |
 | `unstaking`    | bool | True to include unstakers in response |
+
+&#x20;\* = optional
+
+### `Delegations`
+
+Returns list of DelegationInfo
+
+```
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum QueryMsg {
+    Delegations {
+        limit: Option<u32>,
+        start_after: Option<String>,
+        user: Option<String>,
+    }
+}
+```
+
+|                |        |                                |
+| -------------- | ------ | ------------------------------ |
+| `*limit`       | u32    | Response limit                 |
+| `*start_after` | String | Start after governator address |
+| `*user`        | String | Query a specific user          |
 
 &#x20;\* = optional
 
