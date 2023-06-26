@@ -9,7 +9,8 @@ description: MBRN Staking contract
 * Stakers can restake after starting to unstake if **MBRN** hasn't been withdrawn.&#x20;
 * The [Vesting](vesting.md) contract doesn't receive inflationary **MBRN** rewards.
 * MBRN-denominated staking rewards are enabled on a schedule to ensure the DAO isn't passively centralizing stake in stakers
-* Can't unstake if an executable proposal in Governance has passed that you have voted Yes to hasn't executed its messages
+* Can't unstake if you have voted on an active proposal or an executable proposal that Governance has passed, that you have voted Yes to, hasn't executed its messages
+* All delegation and unstaking actions claim rewards. if u dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
 
 ## InstantiateMsg
 
