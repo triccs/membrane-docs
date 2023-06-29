@@ -10,7 +10,8 @@ description: MBRN Staking contract
 * The [Vesting](vesting.md) contract doesn't receive inflationary **MBRN** rewards.
 * MBRN-denominated staking rewards are enabled on a schedule to ensure the DAO isn't passively centralizing stake in stakers
 * Can't unstake if you have voted on an active proposal or an executable proposal that Governance has passed, that you have voted Yes to, hasn't executed its messages
-* All delegation and unstaking actions claim rewards. if u dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
+* All delegation and unstaking actions claim rewards. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
+* You can disable the voting power for delegations which makes them commission only
 
 ## InstantiateMsg
 
@@ -158,17 +159,19 @@ pub enum ExecuteMsg {
         delegate: Option<bool>,
         fluid: Option<bool>,
         commission: Option<Decimal>,
+        voting_power_delegation: Option<bool>,
     }
 }
 ```
 
-| Key                | Type    | Description                                                                  |
-| ------------------ | ------- | ---------------------------------------------------------------------------- |
-| `*governator_addr` | String  | Governator to act upon                                                       |
-| `*mbrn_amount`     | Uint128 | Amount to act upon                                                           |
-| `*delegate`        | bool    | To delegate or undelegate                                                    |
-| `*fluid`           | bool    | Toggle fluidity of delegation "Can the governator delegate your delegation?" |
-| `*commission`      | Decimal | Governator's commission rate                                                 |
+| Key                        | Type    | Description                                                                            |
+| -------------------------- | ------- | -------------------------------------------------------------------------------------- |
+| `*governator_addr`         | String  | Governator to act upon                                                                 |
+| `*mbrn_amount`             | Uint128 | Amount to act upon                                                                     |
+| `*delegate`                | bool    | To delegate or undelegate                                                              |
+| `*fluid`                   | bool    | Toggle fluidity of delegation "Can the governator delegate your delegation?"           |
+| `*commission`              | Decimal | Governator's commission rate                                                           |
+| `*voting_power_delegation` | bool    | Toggle voting power delegation, i.e. (dis)allow your delegate to use your voting power |
 
 \* = optional
 
@@ -343,6 +346,25 @@ pub enum QueryMsg {
         start_after: Option<String>,
         user: Option<String>,
     }
+}
+
+pub struct DelegationResponse {
+    pub user: Addr,
+    pub delegation_info: DelegationInfo,
+}
+
+pub struct DelegationInfo {    
+    pub delegated: Vec<Delegation>,
+    pub delegated_to: Vec<Delegation>,
+    pub commission: Decimal,
+}
+
+pub struct Delegation {
+    pub delegate: Addr,
+    pub amount: Uint128,
+    pub fluidity: bool,
+    pub voting_power_delegation: bool,
+    pub time_of_delegation: u64,
 }
 ```
 
