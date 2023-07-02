@@ -12,5 +12,5 @@ This means CDT can be deposited into the SP for 0 cost, LPs can profitably provi
 
 **Note: All of these contracts accrue your positions before withdrawals**
 
-<table><thead><tr><th>Discount for</th><th>Qualifier</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>MBRN</strong></td><td><a href="../smart-contracts/staking.md">Staked</a> &#x26; based on market price. Floor price of 1 CDT. Includes pending rewards.</td><td></td></tr><tr><td><strong>CDT</strong></td><td>Deposit in <a href="../smart-contracts/stability-pool.md">Stability Pool</a> for 7 days. Includes pending incentives.</td><td></td></tr><tr><td><strong>LPs</strong></td><td>Deposit in Discount Vault for 7 days (no lock required) or in Osmosis gauges that are longer than 7 days.</td><td></td></tr></tbody></table>
+<table><thead><tr><th>Discount for</th><th>Qualifier</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>MBRN</strong></td><td><a href="../smart-contracts/staking.md">Staked</a> &#x26; based on market price. Floor price of 1 CDT. Includes pending rewards.</td><td></td></tr><tr><td><strong>CDT</strong></td><td>Deposit in <a href="../smart-contracts/stability-pool.md">Stability Pool</a> for 7 days. Includes pending incentives.</td><td></td></tr><tr><td><strong>LPs</strong></td><td>Deposit in Discount Vault for 7 days (no lock required)</td><td></td></tr></tbody></table>
 
