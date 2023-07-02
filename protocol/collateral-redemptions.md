@@ -1,5 +1,5 @@
 ---
-description: The debt token can be used to redeem collateral from Positions that opt-in
+description: CDT can be used to redeem collateral from Positions that opt-in
 ---
 
 # Collateral Redemptions
