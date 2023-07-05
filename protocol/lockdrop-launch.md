@@ -6,8 +6,8 @@ description: >-
 
 # Lockdrop (Launch)
 
-For launch, Membrane has 10M tokens up for grabs in the lockdrop that will linearly vest based on the individually chosen vesting period at a max of 3 months. At the end of the lockdrop, the deposited OSMO (minus _operational fees)_ will be matched with an additional 10M MBRN, paired into an LP & sent to the Governance contract controlled by stakers. _Operational fees_ are 400 OSMO used to create 3 **CDT** pools & 1 **MBRN** pool. This sets floating **MBRN** 3 months after launch to **21.25M or 21.25% of supply**.
+For launch, Membrane has 10M tokens up for grabs in the lockdrop that will linearly vest based on the individually chosen vesting period at a max of 3 months. At the end of the lockdrop, the deposited OSMO (minus _operational fees)_ will be matched with an additional 10M MBRN, paired into an LP & sent to the Governance contract controlled by stakers. _Operational fees_ are 200 OSMO used to create 1 **CDT** pools & 1 **MBRN** pool. This sets floating **MBRN** 3 months after launch to **21.25M or 21.25% of supply**.
 
 After the creation of the 4 pools, the CDT/OSMO & CDT/(axl)USDC pools will receive incentives, 1.5M/6months & 500k/3months respectively. The launch goal is to guarantee liquidity for **MBRN** so that **CDT** has a backstop from day 1.
 
-**Note:** The protocol is deployed before launch starts, so any testing can be done beforehand. The entire process is handled by a [smart contract](https://github.com/MembraneFinance/membrane-core/tree/main/contracts/launch).
+**Note:** The protocol is deployed before launch starts, so users can play around beforehand. The entire process is handled by a [smart contract](https://github.com/MembraneFinance/membrane-core/tree/main/contracts/launch).
