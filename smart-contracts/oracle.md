@@ -172,7 +172,8 @@ pub enum QueryMsg {
 
 pub struct PriceResponse {
     pub prices: Vec<PriceInfo>, 
-    pub avg_price: Decimal,
+    pub price: Decimal,
+    pub is_LP: bool,
 }
 ```
 
@@ -202,6 +203,7 @@ pub enum QueryMsg {
 pub struct PriceResponse {
     pub prices: Vec<PriceInfo>, 
     pub price: Decimal,
+    pub is_LP: bool,
 }
 ```
 
