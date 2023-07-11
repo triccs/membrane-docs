@@ -225,22 +225,7 @@ pub struct UpdateConfig {
 }
 ```
 
-| Key                                 | Type         | Description                             |
-| ----------------------------------- | ------------ | --------------------------------------- |
-| `*mbrn_denom`                       | String       | MBRN native token fulldenom             |
-| `*minimum_total_stake`              | Uint128      | Minimum total stake to submit proposals |
-| `*staking_contract_addr`            | String       | MBRN staking contract                   |
-| `*vesting_contract_addr`            | String       | Vesting contract address                |
-| `*vesting_voting_power_multipler`   | Decimal      | Vesting voting power ratio              |
-| `*proposal_voting_period`           | u64          | Proposal voting period                  |
-| `*expedited_proposal_voting_period` | u64          | Expedited Proposal voting period        |
-| `*proposal_effective_delay`         | u64          | Proposal effective delay                |
-| `*proposal_expiration_period`       | u64          | Proposal expiration period              |
-| `*proposal_required_stake`          | u128         | Proposal required stake                 |
-| `*proposal_required_quorum`         | String       | Proposal required quorum                |
-| `*proposal_required_threshold`      | String       | Proposal required threshold             |
-| `*whitelist_remove`                 | Vec\<String> | Links to remove from whitelist          |
-| `*whitelist_add`                    | Vec\<String> | Links to add to whitelist               |
+<table><thead><tr><th width="233">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*mbrn_denom</code></td><td>String</td><td>MBRN native token fulldenom</td></tr><tr><td><code>*minimum_total_stake</code></td><td>Uint128</td><td>Minimum total stake to submit proposals</td></tr><tr><td><code>*staking_contract_addr</code></td><td>String</td><td>MBRN staking contract</td></tr><tr><td><code>*vesting_contract_addr</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*vesting_voting_power_multipler</code></td><td>Decimal</td><td>Vesting voting power ratio</td></tr><tr><td><code>*proposal_voting_period</code></td><td>u64</td><td>Proposal voting period</td></tr><tr><td><code>*expedited_proposal_voting_period</code></td><td>u64</td><td>Expedited Proposal voting period</td></tr><tr><td><code>*proposal_effective_delay</code></td><td>u64</td><td>Proposal effective delay</td></tr><tr><td><code>*proposal_expiration_period</code></td><td>u64</td><td>Proposal expiration period</td></tr><tr><td><code>*proposal_required_stake</code></td><td>u128</td><td>Proposal required stake</td></tr><tr><td><code>*proposal_required_quorum</code></td><td>String</td><td>Proposal required quorum</td></tr><tr><td><code>*proposal_required_threshold</code></td><td>String</td><td>Proposal required threshold</td></tr><tr><td><code>*whitelist_remove</code></td><td>Vec&#x3C;String></td><td>Links to remove from whitelist</td></tr><tr><td><code>*whitelist_add</code></td><td>Vec&#x3C;String></td><td>Links to add to whitelist</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -291,6 +276,7 @@ pub enum QueryMsg {
 }
 
 pub struct ProposalResponse {
+    pub voting_power: Vec<(Addr, Uint128)>,
     pub proposal_id: Uint64,
     pub submitter: Addr,
     pub status: ProposalStatus,
@@ -331,6 +317,7 @@ pub enum QueryMsg {
 }
 
 pub struct ProposalResponse {
+    pub voting_power: Vec<(Addr, Uint128)>,
     pub proposal_id: Uint64,
     pub submitter: Addr,
     pub status: ProposalStatus,
@@ -400,6 +387,7 @@ pub enum QueryMsg {
 }
 
 pub struct ProposalResponse {
+    pub voting_power: Vec<(Addr, Uint128)>,
     pub proposal_id: Uint64,
     pub submitter: Addr,
     pub status: ProposalStatus,
