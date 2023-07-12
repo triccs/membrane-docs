@@ -11,7 +11,7 @@ The 3 layers of the liquidation mechanism: **Liquidation Queue (LQ)**, **Stabili
 
 The **LQ** allows users to bid on specific collateral assets at a range of premium rates.&#x20;
 
-The **SP** acts as a backstop for the entire vault system, its funds used to liquidate for any collateral at a set premium.
+The **SP** acts as a backstop for the entire vault system, its funds used to liquidate for any collateral at a set premium. Since the **SP** gets 2ndary priority for liquidations, if the fee is too high the system's liquidation efficiency will drop.
 
 As a final measure, any collateral positions that can't get liquidated by the first 2 steps will be sold on the market to avoid the protocol accruing bad debt. In the case it does, pending revenue and/or [MBRN auctions](../smart-contracts/mbrn-auction.md) will cover it, similar to [MakerDAO's Debt Auctions](https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol).
 
@@ -25,7 +25,7 @@ Smart contracts aren't autonomous so they need to be called by an external sourc
 
 _Ex: If a position's liquidation point is 80% LTV and the position gets to 81%, the caller's fee would be 1% of the liquidated collateral._
 
-The fee will keep increasing until a liquidator deems its profitable/desirable to liquidate, but if one waits too long it may lose the chance to capture the fee. This mechanism finds the lowest viable liquidation fee which benefits the user and the overall market.&#x20;
+The fee will keep increasing until a liquidator deems its profitable/desirable to liquidate, but if one waits too long it may lose the chance to capture the fee. This mechanism finds the lowest viable liquidation fee which benefits the user and the overall market.  Because the liquidator is only receiving the fee, there is a lower barrier for activation compared to systems where they need to liquidate the fee & the collateral.
 
 **Note: There is a configurable 1% fee controlled by governance**\
 
@@ -37,7 +37,7 @@ Additional Sources:&#x20;
 
 ### System Benefits
 
-Having pools of **CDT** on standby to liquidate increases the efficiency of the market's demand in smoothing our liquidation process. This provides the mechanism a larger buffer for harsh liquidation periods and reduces the protocol's direct effect on external markets. The wallet distribution of the **LQ** allows a more diverse user base to obtain assets, increasing the % sent to hodlers.
+Having pools of **CDT** on standby to liquidate increases the efficiency of the market's demand in smoothing our liquidation process. This provides the mechanism a larger buffer for harsh liquidation periods and reduces the protocol's direct effect on external markets. The wallet distribution of the **LQ** allows a more diverse user base to obtain assets, increasing the % sent to hodlers.&#x20;
 
 If the liquidation pools are ever empty, they can also be used to facilitate flash loan based liquidations.
 
