@@ -44,13 +44,7 @@ pub struct InstantiateMsg {
 }
 ```
 
-| Key                    | Type    | Description                                    |
-| ---------------------- | ------- | ---------------------------------------------- |
-| `*owner`               | String  | Owner of the contract, defaults to info.sender |
-| `positions_contract`   | String  | CDP contract                                   |
-| `waiting_period`       | u64     | Waiting period for bids (secs)                 |
-| `*minimum_bid`         | Uint128 | Minimum bid amount                             |
-| `*maximum_waiting_bid` | u64     | Maximum waiting bids                           |
+<table><thead><tr><th width="233">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract, defaults to info.sender</td></tr><tr><td><code>positions_contract</code></td><td>String</td><td>CDP contract</td></tr><tr><td><code>waiting_period</code></td><td>u64</td><td>Waiting period for bids (secs)</td></tr><tr><td><code>*minimum_bid</code></td><td>Uint128</td><td>Minimum bid amount</td></tr><tr><td><code>*maximum_waiting_bid</code></td><td>u64</td><td>Maximum waiting bids</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -137,14 +131,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key                 | Type      | Description                    |
-| ------------------- | --------- | ------------------------------ |
-| `credit_price`      | Decimal   | Credit repayment price         |
-| `collateral_price`  | Decimal   | Collateral TWAP price          |
-| `collateral_amount` | Uint256   | Collateral amount to liquidate |
-| `bid_for`           | AssetInfo | Collateral asset info          |
-| `position_id`       | Uint128   | Position Info                  |
-| `position_owner`    | String    | Position Info                  |
+<table><thead><tr><th width="227.66666666666669">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>credit_price</code></td><td>Decimal</td><td>Credit repayment price</td></tr><tr><td><code>collateral_price</code></td><td>Decimal</td><td>Collateral TWAP price</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount to liquidate</td></tr><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Collateral asset info</td></tr><tr><td><code>position_id</code></td><td>Uint128</td><td>Position Info</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Position Info</td></tr></tbody></table>
 
 ### `ClaimLiquidations`
 
@@ -231,12 +218,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key                     | Type    | Description                   |
-| ----------------------- | ------- | ----------------------------- |
-| `*owner`                | String  | Owner of the contract         |
-| `*waiting_period`       | u64     | Bid waiting period in seconds |
-| `*minimum_bid`          | Uint128 | Minimum Bid amount            |
-| `*maximum_waiting_bids` | u64     | Maximum waiting bids          |
+<table><thead><tr><th width="251">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract</td></tr><tr><td><code>*waiting_period</code></td><td>u64</td><td>Bid waiting period in seconds</td></tr><tr><td><code>*minimum_bid</code></td><td>Uint128</td><td>Minimum Bid amount</td></tr><tr><td><code>*maximum_waiting_bids</code></td><td>u64</td><td>Maximum waiting bids</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -398,10 +380,7 @@ pub struct QueueResponse {
 }
 ```
 
-| Key            | Type      | Description                        |
-| -------------- | --------- | ---------------------------------- |
-| `*start_after` | AssetInfo | Asset Queue to start after         |
-| `*limit`       | u8        | Limit to # of users parsed through |
+<table><thead><tr><th width="306">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*start_after</code></td><td>AssetInfo</td><td>Asset Queue to start after</td></tr><tr><td><code>*limit</code></td><td>u8</td><td>Limit to # of users parsed through</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -431,13 +410,7 @@ pub struct LiquidatibleResponse {
 
 ```
 
-| Key                 | Type      | Description                       |
-| ------------------- | --------- | --------------------------------- |
-| `bid_for`           | AssetInfo | Asset the Queue is bidding for    |
-| `collateral_price`  | Decimal   | Price of collateral being bid for |
-| `collateral_amount` | Uint256   | Collateral amount                 |
-| `credit_info`       | AssetInfo | Asset being bid with              |
-| `credit_price`      | Decimal   | Bid\_with price                   |
+<table><thead><tr><th width="235">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Asset the Queue is bidding for</td></tr><tr><td><code>collateral_price</code></td><td>Decimal</td><td>Price of collateral being bid for</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount</td></tr><tr><td><code>credit_info</code></td><td>AssetInfo</td><td>Asset being bid with</td></tr><tr><td><code>credit_price</code></td><td>Decimal</td><td>Bid_with price</td></tr></tbody></table>
 
 ### `UserClaims`
 
@@ -535,8 +508,4 @@ pub struct SlotResponse {
 }
 ```
 
-| Key            | Type      | Description                    |
-| -------------- | --------- | ------------------------------ |
-| `bid_fpr`      | AssetInfo | Asset the Queue is bidding for |
-| `*start_after` | AssetInfo | Asset Queue to start after     |
-| `*limit`       | u8        | Limit to # of slots returned   |
+<table><thead><tr><th width="306">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>bid_fpr</code></td><td>AssetInfo</td><td>Asset the Queue is bidding for</td></tr><tr><td><code>*start_after</code></td><td>AssetInfo</td><td>Asset Queue to start after</td></tr><tr><td><code>*limit</code></td><td>u8</td><td>Limit to # of slots returned</td></tr></tbody></table>

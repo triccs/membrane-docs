@@ -32,8 +32,8 @@
 * [Margin Proxy](smart-contracts/margin-proxy.md)
 * [System Discounts](smart-contracts/system-discounts.md)
 * [Discount Vault](smart-contracts/discount-vault.md)
-* [Contract Map](smart-contracts/contract-map.md)
 
 ## Technical Explanations
 
 * [Liquidation Mechanism](technical-explanations/liquidation-mechanism.md)
+* [Contract Map](technical-explanations/contract-map.md)

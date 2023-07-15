@@ -29,10 +29,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key           | Type    | Description                               |
-| ------------- | ------- | ----------------------------------------- |
-| `subdenom`    | String  | Subdenom for native asset                 |
-| `*max_supply` | Uint128 | Token max supply enforced by the contract |
+<table><thead><tr><th width="261">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>subdenom</code></td><td>String</td><td>Subdenom for native asset</td></tr><tr><td><code>*max_supply</code></td><td>Uint128</td><td>Token max supply enforced by the contract</td></tr></tbody></table>
 
 &#x20;\* = optional
 

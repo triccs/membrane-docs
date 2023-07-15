@@ -37,24 +37,7 @@ pub struct InstantiateMsg {
 }
 ```
 
-| Key                         | Type    | Description                                                        |
-| --------------------------- | ------- | ------------------------------------------------------------------ |
-| `*owner`                    | String  | Contract owner that defaults to info.sender                        |
-| `oracle_time_limit`         | u64     | Limit in seconds that the oracle has before the values are invalid |
-| `debt_minimum`              | Uint128 | Minimum value in debt per position                                 |
-| `liq_fee`                   | Decimal | Fee that goes to the protocol during liquidations                  |
-| `collateral_twap_timeframe` | u64     | TWAP length in minutes                                             |
-| `credit_twap_timeframe`     | u64     | TWAP length in minutes                                             |
-| `rate_slope_multiplier`     | Decimal | Interest rate slope multiplier                                     |
-| `base_debt_cap_multiplier`  | Uint128 | Base debt cap multiplier                                           |
-| `*stability_pool`           | String  | Stability Pool Contract                                            |
-| `*dex_router`               | String  | DEX Router Contract                                                |
-| `*staking_contract`         | String  | MBRN staking contract                                              |
-| `*oracle_contract`          | String  | Oracle contract                                                    |
-| `*osmosis_proxy`            | String  | Osmosis Proxy contract to use SDK modules                          |
-| `*debt_auction`             | String  | Auction Contract that sells protocol tokens to repay debt          |
-| `*liquidity_contract`       | String  | Liquidity Check contract address                                   |
-| `*discounts_contract`       | String  | System Discounts contract address                                  |
+<table><thead><tr><th width="267.4108280254777">Key</th><th width="206">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner that defaults to info.sender</td></tr><tr><td><code>oracle_time_limit</code></td><td>u64</td><td>Limit in seconds that the oracle has before the values are invalid</td></tr><tr><td><code>debt_minimum</code></td><td>Uint128</td><td>Minimum value in debt per position</td></tr><tr><td><code>liq_fee</code></td><td>Decimal</td><td>Fee that goes to the protocol during liquidations</td></tr><tr><td><code>collateral_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>credit_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>rate_slope_multiplier</code></td><td>Decimal</td><td>Interest rate slope multiplier</td></tr><tr><td><code>base_debt_cap_multiplier</code></td><td>Uint128</td><td>Base debt cap multiplier</td></tr><tr><td><code>*stability_pool</code></td><td>String</td><td>Stability Pool Contract</td></tr><tr><td><code>*dex_router</code></td><td>String</td><td>DEX Router Contract</td></tr><tr><td><code>*staking_contract</code></td><td>String</td><td>MBRN staking contract</td></tr><tr><td><code>*oracle_contract</code></td><td>String</td><td>Oracle contract</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract to use SDK modules</td></tr><tr><td><code>*debt_auction</code></td><td>String</td><td>Auction Contract that sells protocol tokens to repay debt</td></tr><tr><td><code>*liquidity_contract</code></td><td>String</td><td>Liquidity Check contract address</td></tr><tr><td><code>*discounts_contract</code></td><td>String</td><td>System Discounts contract address</td></tr></tbody></table>
 
 \* = optional
 
@@ -91,25 +74,7 @@ pub struct UpdateConfig {
 }
 ```
 
-| Key                          | Type    | Description                                                             |
-| ---------------------------- | ------- | ----------------------------------------------------------------------- |
-| `*owner`                     | String  | Owner of contract                                                       |
-| `*stability_pool`            | String  | Stability Pool contract                                                 |
-| `*dex_router`                | String  | Dex Router contract                                                     |
-| `*osmosis_proxy`             | String  | Osmosis Proxy contract                                                  |
-| `*debt_auction`              | String  | Debt Auction contract                                                   |
-| `*staking_contract`          | String  | MBRN Staking contract                                                   |
-| `*oracle_contract`           | String  | Oracle contract                                                         |
-| `*liquidity_contract`        | String  | Liquidity Check contract                                                |
-| `*discounts_contract`        | String  | System Discounts contract                                               |
-| _`*liq_fee`_                 | Decimal | Liquidation fee                                                         |
-| `*debt_minimum`              | Uint128 | Debt minimum in terms of value                                          |
-| `*base_debt_cap_multiplier`  | Uint128 | Debt Minimum Multiplier for a base debt cap                             |
-| `*oracle_time_limit`         | u64     | Oracle expiration time limit in seconds                                 |
-| `*collateral_twap_timeframe` | u64     | TWAP length in minutes                                                  |
-| `*credit_twap_timeframe`     | u64     | TWAP length in minutes                                                  |
-| `*cpc_multiplier`            | Decimal | Multiplier for credit price difference to augment redemption price rate |
-| `*rate_slope_multiplier`     | Decimal | Multiplier for the 2nd slope in the interest rate formula               |
+<table><thead><tr><th width="307">Key</th><th width="113">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of contract</td></tr><tr><td><code>*stability_pool</code></td><td>String</td><td>Stability Pool contract</td></tr><tr><td><code>*dex_router</code></td><td>String</td><td>Dex Router contract</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract</td></tr><tr><td><code>*debt_auction</code></td><td>String</td><td>Debt Auction contract</td></tr><tr><td><code>*staking_contract</code></td><td>String</td><td>MBRN Staking contract</td></tr><tr><td><code>*oracle_contract</code></td><td>String</td><td>Oracle contract</td></tr><tr><td><code>*liquidity_contract</code></td><td>String</td><td>Liquidity Check contract </td></tr><tr><td><code>*discounts_contract</code></td><td>String</td><td>System Discounts contract</td></tr><tr><td><em><code>*liq_fee</code></em></td><td>Decimal</td><td>Liquidation fee</td></tr><tr><td><code>*debt_minimum</code></td><td>Uint128</td><td>Debt minimum in terms of value</td></tr><tr><td><code>*base_debt_cap_multiplier</code></td><td>Uint128</td><td>Debt Minimum Multiplier for a base debt cap</td></tr><tr><td><code>*oracle_time_limit</code></td><td>u64</td><td>Oracle expiration time limit in seconds</td></tr><tr><td><code>*collateral_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>*credit_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>*cpc_multiplier</code></td><td>Decimal</td><td>Multiplier for credit price difference to augment redemption price rate</td></tr><tr><td><code>*rate_slope_multiplier</code></td><td>Decimal</td><td>Multiplier for the 2nd slope in the interest rate formula</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -127,10 +92,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key                | Type    | Description                                                              |
-| ------------------ | ------- | ------------------------------------------------------------------------ |
-| \*`position_id`    | Uint128 | Position ID to deposit to. If none is passed, a new position is created. |
-| \*`position_owner` | String  | Owner of the position, defaults to info.sender                           |
+<table><thead><tr><th width="212">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>*<code>position_id</code></td><td>Uint128</td><td>Position ID to deposit to. If none is passed, a new position is created.</td></tr><tr><td>*<code>position_owner</code></td><td>String</td><td>Owner of the position, defaults to info.sender</td></tr></tbody></table>
 
 \* = optional
 
@@ -195,11 +157,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key               | Type    | Description                                |
-| ----------------- | ------- | ------------------------------------------ |
-| `position_id`     | Uint128 | ID of Position                             |
-| `*position_owner` | String  | Owner of Position to repay                 |
-| `*send_excess_to` | String  | Address to send excess repayment assets to |
+<table><thead><tr><th width="227">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>ID of Position</td></tr><tr><td><code>*position_owner</code></td><td>String</td><td>Owner of Position to repay </td></tr><tr><td><code>*send_excess_to</code></td><td>String</td><td>Address to send excess repayment assets to</td></tr></tbody></table>
 
 \* = optional
 
@@ -273,10 +231,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key              | Type    | Description       |
-| ---------------- | ------- | ----------------- |
-| `position_id`    | Uint128 | ID of Position    |
-| `position_owner` | String  | Owner of Position |
+<table><thead><tr><th width="207">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>ID of Position</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Owner of Position</td></tr></tbody></table>
 
 ### `RedeemCollateral`
 
@@ -344,11 +299,7 @@ pub struct UserInfo {
 }
 ```
 
-| Key          | Type     | Description                                                               |
-| ------------ | -------- | ------------------------------------------------------------------------- |
-| `*send_to`   | String   | Address to send revenue to,                                               |
-| `*repay_for` | UserInfo | Position Info to repay for w/ revenue. To be used for BadDebt situations. |
-| `*amount`    | Uint128  | Amount to mint, defaults to all                                           |
+<table><thead><tr><th>Key</th><th width="200">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*send_to</code></td><td>String</td><td>Address to send revenue to,</td></tr><tr><td><code>*repay_for</code></td><td>UserInfo</td><td>Position Info to repay for w/ revenue. To be used for BadDebt situations.</td></tr><tr><td><code>*amount</code></td><td>Uint128</td><td>Amount to mint, defaults to all</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -371,15 +322,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key                   | Type         | Description                                 |
-| --------------------- | ------------ | ------------------------------------------- |
-| `basket_id`           | Uint128      | Basket ID                                   |
-| `collateral_type`     | Vec\<cAsset> | List of accepted cAssets                    |
-| `credit_asset`        | Asset        | Asset info for Basket's credit asset        |
-| `*credit_price`       | Decimal      | Price of credit in basket                   |
-| `*base_interest_rate` | Decimal      | Base interest rate for collateral types     |
-| `credit_pool_ids`     | Vec\<u64>    | Used to measure credit liquidity in Osmosis |
-| `*liq_queue`          | String       | Liquidation Queue contract                  |
+<table><thead><tr><th width="243">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>basket_id</code></td><td>Uint128</td><td>Basket ID</td></tr><tr><td><code>collateral_type</code></td><td>Vec&#x3C;cAsset></td><td>List of accepted cAssets</td></tr><tr><td><code>credit_asset</code></td><td>Asset</td><td>Asset info for Basket's credit asset</td></tr><tr><td><code>*credit_price</code></td><td>Decimal</td><td>Price of credit in basket</td></tr><tr><td><code>*base_interest_rate</code></td><td>Decimal</td><td>Base interest rate for collateral types</td></tr><tr><td><code>credit_pool_ids</code></td><td>Vec&#x3C;u64></td><td>Used to measure credit liquidity in Osmosis</td></tr><tr><td><code>*liq_queue</code></td><td>String</td><td>Liquidation Queue contract</td></tr></tbody></table>
 
 \* = optional
 
@@ -408,19 +351,7 @@ pub struct EditBasket {
 }
 ```
 
-| Key                               | Type                      | Description                                                              |
-| --------------------------------- | ------------------------- | ------------------------------------------------------------------------ |
-| `*added_cAsset`                   | cAsset                    | cAsset object to add to accepted basket objects                          |
-| `*liq_queue`                      | String                    | Liq Queue contract for the credit asset                                  |
-| `*credit_pool_ids`                | Vec\<PoolType>            | Osmosis Pool IDs to query credit liquidity from                          |
-| `*collateral_supply_caps`         | Vec\<SupplyCap>           | Collateral supply caps                                                   |
-| `*multi_asset_supply_caps`        | Vec\<MultiAssetSupplyCap> | Multi-asset collateral supply caps                                       |
-| `*base_interest_rate`             | Decimal                   | Base interest rate for collateral types                                  |
-| `*credit_asset_twap_price_source` | TWAPPoolInfo              | Oracle information to store for credit price queries                     |
-| `*negative_rates`                 | bool                      | Toggle to allow negative repayment interest                              |
-| `*cpc_margin_of_error`            | Decimal                   | Margin of Error before the credit interest is effected by the TWAP price |
-| `*frozen`                         | bool                      | Freeze withdrawals & debt increases to fix bugs                          |
-| `*rev_to_stakers`                 | bool                      | Toggle revenue to stakers                                                |
+<table><thead><tr><th width="224">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*added_cAsset</code></td><td>cAsset</td><td>cAsset object to add to accepted basket objects</td></tr><tr><td><code>*liq_queue</code></td><td>String</td><td>Liq Queue contract for the credit asset</td></tr><tr><td><code>*credit_pool_ids</code></td><td>Vec&#x3C;PoolType></td><td>Osmosis Pool IDs to query credit liquidity from</td></tr><tr><td><code>*collateral_supply_caps</code></td><td>Vec&#x3C;SupplyCap></td><td>Collateral supply caps </td></tr><tr><td><code>*multi_asset_supply_caps</code></td><td>Vec&#x3C;MultiAssetSupplyCap></td><td>Multi-asset collateral supply caps</td></tr><tr><td><code>*base_interest_rate</code></td><td>Decimal</td><td>Base interest rate for collateral types</td></tr><tr><td><code>*credit_asset_twap_price_source</code></td><td>TWAPPoolInfo</td><td>Oracle information to store for credit price queries</td></tr><tr><td><code>*negative_rates</code></td><td>bool</td><td>Toggle to allow negative repayment interest </td></tr><tr><td><code>*cpc_margin_of_error</code></td><td>Decimal</td><td>Margin of Error before the credit interest is effected by the TWAP price</td></tr><tr><td><code>*frozen</code></td><td>bool</td><td>Freeze withdrawals &#x26; debt increases to fix bugs</td></tr><tr><td><code>*rev_to_stakers</code></td><td>bool</td><td>Toggle revenue to stakers</td></tr></tbody></table>
 
 \* = optional
 
@@ -441,11 +372,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key               | Type      | Description              |
-| ----------------- | --------- | ------------------------ |
-| asset             | AssetInfo | Asset to edit            |
-| `*max_borrow_LTV` | Decimal   | Maximum borrowable LTV   |
-| `*max_LTV`        | Decimal   | Point of Liquidation LTV |
+<table><thead><tr><th width="220">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>asset</td><td>AssetInfo</td><td>Asset to edit</td></tr><tr><td><code>*max_borrow_LTV</code></td><td>Decimal</td><td>Maximum borrowable LTV</td></tr><tr><td><code>*max_LTV</code></td><td>Decimal</td><td>Point of Liquidation LTV</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -481,10 +408,7 @@ BadDebtCheck {
 }
 ```
 
-| Key              | Type    | Description       |
-| ---------------- | ------- | ----------------- |
-| `position_id`    | Uint128 | ID of Position    |
-| `position_owner` | Addr    | Owner of Position |
+<table><thead><tr><th width="207">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>ID of Position</td></tr><tr><td><code>position_owner</code></td><td>Addr</td><td>Owner of Position</td></tr></tbody></table>
 
 ## QueryMsg
 
@@ -543,10 +467,7 @@ pub struct PositionResponse {
 }
 ```
 
-| Key      | Type   | Description                 |
-| -------- | ------ | --------------------------- |
-| `user`   | String | Position owner to query for |
-| `*limit` | u32    | Position Response limiter   |
+<table><thead><tr><th width="180">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>user</code></td><td>String</td><td>Position owner to query for</td></tr><tr><td><code>*limit</code></td><td>u32</td><td>Position Response limiter</td></tr></tbody></table>
 
 \* = optional
 
@@ -574,11 +495,7 @@ pub struct PositionResponse {
 }
 ```
 
-| Key           | Type    | Description                      |
-| ------------- | ------- | -------------------------------- |
-| `position_id` | Uint128 | ID of Position                   |
-| `basket_id`   | Uint128 | ID of Basket the Position is in  |
-| `user`        | String  | User that owns position          |
+<table><thead><tr><th width="180">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>ID of Position</td></tr><tr><td><code>basket_id</code></td><td>Uint128</td><td>ID of Basket the Position is in </td></tr><tr><td><code>user</code></td><td>String</td><td>User that owns position</td></tr></tbody></table>
 
 ### `GetBasketRedeemability`
 
@@ -629,10 +546,7 @@ pub struct Position {
 }
 ```
 
-| Key            | Type   | Description                        |
-| -------------- | ------ | ---------------------------------- |
-| `*start_after` | String | User address to start after        |
-| `*limit`       | u32    | Limit to # of users parsed through |
+<table><thead><tr><th width="190">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*start_after</code></td><td>String</td><td>User address to start after</td></tr><tr><td><code>*limit</code></td><td>u32</td><td>Limit to # of users parsed through</td></tr></tbody></table>
 
 \* = optional
 
@@ -719,10 +633,7 @@ pub struct InsolvencyResponse {
 }
 ```
 
-| Key              | Type    | Description           |
-| ---------------- | ------- | --------------------- |
-| `position_id`    | Uint128 | Position ID to query  |
-| `position_owner` | String  | Owner of the position |
+<table><thead><tr><th width="212">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>Position ID to query</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Owner of the position</td></tr></tbody></table>
 
 ### `GetCreditRate`
 

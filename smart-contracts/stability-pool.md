@@ -50,17 +50,7 @@ pub struct Asset {
 }
 ```
 
-| Key                       | Type      | Description                                    |
-| ------------------------- | --------- | ---------------------------------------------- |
-| `*asset_pool`             | AssetPool | Initial Asset Pool for the contract            |
-| `*owner`                  | String    | Owner of the contract, defaults to info.sender |
-| `*incentive_rate`         | Decimal   | Base MBRN incentive rate                       |
-| `*max_incentives`         | Uint128   | Maximum MBRN the Pool can mint for incentives  |
-| `*minimum_deposit_amount` | Uint128   | Minimum deposit amount                         |
-| `osmosis_proxy`           | String    | Osmosis Proxy contract address                 |
-| `positions_contract`      | String    | CDP contract                                   |
-| `oracle_contract`         | String    | Oracle contract                                |
-| `mbrn_denom`              | String    | MBRN denom                                     |
+<table><thead><tr><th width="231">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*asset_pool</code></td><td>AssetPool</td><td>Initial Asset Pool for the contract</td></tr><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract, defaults to info.sender</td></tr><tr><td><code>*incentive_rate</code></td><td>Decimal</td><td>Base MBRN incentive rate</td></tr><tr><td><code>*max_incentives</code></td><td>Uint128</td><td>Maximum MBRN the Pool can mint for incentives</td></tr><tr><td><code>*minimum_deposit_amount</code></td><td>Uint128</td><td>Minimum deposit amount</td></tr><tr><td><code>osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>positions_contract</code></td><td>String</td><td>CDP contract</td></tr><tr><td><code>oracle_contract</code></td><td>String</td><td>Oracle contract</td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN denom</td></tr></tbody></table>
 
 \* = optional
 
@@ -192,11 +182,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-| Key                         | Type          | Description                        |
-| --------------------------- | ------------- | ---------------------------------- |
-| `distribution_assets`       | Vec\<Asset>   | Assets to be distributed to users  |
-| `distribution-asset-ratios` | Vec\<Decimal> | Ratios of distribution assets      |
-| `credit_price`              | Decimal       | Redemption price of `credit_asset` |
+<table><thead><tr><th width="327">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>distribution_assets</code></td><td>Vec&#x3C;Asset></td><td>Assets to be distributed to users</td></tr><tr><td><code>distribution-asset-ratios</code></td><td>Vec&#x3C;Decimal></td><td>Ratios of distribution assets</td></tr><tr><td><code>credit_price</code></td><td>Decimal</td><td>Redemption price of <code>credit_asset</code></td></tr></tbody></table>
 
 ### `Repay`
 

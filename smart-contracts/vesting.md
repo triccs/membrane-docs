@@ -20,14 +20,7 @@ pub struct InstantiateMsg {
 }
 ```
 
-| Key                       | Type    | Description                                          |
-| ------------------------- | ------- | ---------------------------------------------------- |
-| `*owner`                  | String  | Owner of contract                                    |
-| `initial_allocation`      | Uint128 | Builder's Allocation                                 |
-| `pre_launch_contributors` | String  | Address receiving pre-launch contributors allocation |
-| `mbrn_denom`              | String  | MBRN token denom                                     |
-| `osmosis_proxy`           | String  | Osmosis Proxy  contract address                      |
-| `staking_contract`        | String  | MBRN Staking contract address                        |
+<table><thead><tr><th width="232">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of contract</td></tr><tr><td><code>initial_allocation</code></td><td>Uint128</td><td>Builder's Allocation</td></tr><tr><td><code>pre_launch_contributors</code></td><td>String</td><td>Address receiving pre-launch contributors allocation</td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN token denom</td></tr><tr><td><code>osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy  contract address</td></tr><tr><td><code>staking_contract</code></td><td>String</td><td>MBRN Staking contract address</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -90,11 +83,7 @@ pub struct VestingPeriod {
 }
 ```
 
-| Key               | Type          | Description                             |
-| ----------------- | ------------- | --------------------------------------- |
-| `recipient`       | String        | Address of Receiver                     |
-| `allocation`      | Uint128       | Allocation amount                       |
-| `*vesting_period` | VestingPeriod | VestingPeriod for receiver's allocation |
+<table><thead><tr><th width="197">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>recipient</code></td><td>String</td><td>Address of Receiver</td></tr><tr><td><code>allocation</code></td><td>Uint128</td><td>Allocation amount</td></tr><tr><td><code>*vesting_period</code></td><td>VestingPeriod</td><td>VestingPeriod for receiver's allocation</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -189,10 +178,7 @@ pub enum ProposalVoteOption {
 }
 ```
 
-| Key           | Type               | Description          |
-| ------------- | ------------------ | -------------------- |
-| `proposal_id` | u64                | Proposal identifier  |
-| `vote`        | ProposalVoteOption | Proposal vote option |
+<table><thead><tr><th>Key</th><th width="188">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>proposal_id</code></td><td>u64</td><td>Proposal identifier</td></tr><tr><td><code>vote</code></td><td>ProposalVoteOption</td><td>Proposal vote option</td></tr></tbody></table>
 
 ### `UpdateConfig`
 

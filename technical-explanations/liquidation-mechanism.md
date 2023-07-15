@@ -33,12 +33,11 @@ Sift remaining collateral amount through LQ
 Whatever credit isn't liquidated gets sent to the SP
 
 * Query `sp_liq_fee`
-* If: `leftover_position_value` minus fees can't repay the position, then the collateral is market sold. LQ msgs still go thru. Assign `RepayPropagation` fields.
-* Else: Check if SP has enough credit to liquidate
+* Check if SP has enough credit to liquidate
 * Whatever it can't is sent to the Sell Wall
 * Assign `RepayPropagation` fields
 * Build SP sub\_msgs
-* If `leftover_position_value` isn't enough to repay a potential remaining `credit_repayment_amount`, NULL every sub\_msgs added and SW everything
+* If `leftover_position_value` isn't enough to repay a potential remaining `credit_repayment_amount`, NULL every sub\_msgs added and Sell Wall everything
 * Reassign `RepayPropagation` fields
 
 #### Reply Function Walkthrough
