@@ -235,7 +235,9 @@ pub enum ExecuteMsg {
 
 ### `RedeemCollateral`
 
-This function allows the redemption of the debt token for collateral assets associated with Positions that have opted in for redemption. The redemption process involves calculating the redeemable amount based on the credit amount, collateral premium, and collateral ratios. The collateral assets are then transferred to the sender's address, redeemed credit subtracted from the Position's debt and any excess credit is returned to the sender as well.
+This function allows the redemption of the debt token for collateral assets within Positions that have opted in for redemption. The redemption process involves calculating the redeemable amount based on the credit amount, collateral premium, and collateral ratios. The collateral assets are then transferred to the sender's address, redeemed credit subtracted from the Position's debt and any excess credit is returned to the sender.
+
+Choosing max\_collateral\_premium is based on what price the debt token was purchased. If purchased 4% below peg, then break-even starts at a 4% premium.&#x20;
 
 ```
 #[cw_serde]
