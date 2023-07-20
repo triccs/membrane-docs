@@ -12,7 +12,7 @@ The primary parameters set by communal governance are accepted collateral types 
 
 Unstaking period is decided by governance. Rewards/fees are still earned while unstaking. The unstaking period is a mechanism used to align the token holders who are distributed revenue with the system's backstop mechanism, the[ debt auction](../smart-contracts/mbrn-auction.md#startauction). In the case of bad debt, stakers who earn assets from liquidations shouldn't be able to unstake and sell during a **MBRN** auction.
 
-Stakers can **delegate their commission and/or voting power** to other community members who are more knowledgable or are worthy of financial support. There are no barriers to being a delegate.
+Stakers can **delegate their commission and/or voting power** to other community members who are more knowledgable or are worthy of financial support. There are no barriers to being a delegate. _**NOTE:**_ Your vote does NOT override your delegate's vote
 
 Regarding proposing authority, **any staker can propose** or align with a proposal. Once a proposal has at least 1k MBRN aligned with it, it'll become active and able to vote for. All Pending proposals have a day to garner alignment so it's better to round up potentials beforehand.
 
