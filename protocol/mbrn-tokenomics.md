@@ -4,7 +4,7 @@ description: MBRN is the liquidity backstop for the Membrane network
 
 # MBRN Tokenomics
 
-The total supply of MBRN will be 100 million MBRN, with 90% allocated to the community, and 10% vested to pre-launch contributors (2 year cliff, 1 linear).
+The total supply of **MBRN** will be 100 million **MBRN**, with 90% allocated to the community, and 10% vested to pre-launch contributors (2 year cliff, 1 linear).
 
 ### Governance
 
@@ -14,13 +14,13 @@ Unstaking period is decided by governance. Rewards/fees are still earned while u
 
 Stakers can **delegate their commission and/or voting power** to other community members who are more knowledgable or are worthy of financial support. There are no barriers to being a delegate. _**NOTE:**_ Your vote does NOT override your delegate's vote
 
-Regarding proposing authority, **any staker can propose** or align with a proposal. Once a proposal has at least 1k MBRN aligned with it, it'll become active and able to vote for. All Pending proposals have a day to garner alignment so it's better to round up potentials beforehand.
+Regarding proposing authority, **any staker can propose** or align with a proposal. Once a proposal has at least 1k **MBRN** aligned with it, it'll become active and able to vote for. All Pending proposals have a day to garner alignment so it's better to round up potentials beforehand.
 
 _**Note:** Vested allocations have no voting power but can submit proposals & receive revenue (not **MBRN** inflation)_
 
 ### Value Flows
 
-Governance can toggle interest rate revenue flows to stakers, initially staked **MBRN** will receive all revenue. MBRN-denominated staking rewards are enabled on a schedule, for example 10% for 3 months. This makes sure the DAO isn't passively centralizing stake in stakers without a plan.
+Governance can toggle interest rate revenue flows to stakers, initially staked **MBRN** will receive all revenue. **MBRN**-denominated staking rewards are enabled on a schedule, for example 10% for 3 months. This makes sure the DAO isn't passively centralizing stake in stakers without a plan.
 
 **MBRN** has ownership over the protocol's liquidation fee, initially set at 1%. Governance can toggle a[ fee auction](../smart-contracts/mbrn-auction.md#startauction) to swap the fees if desired.
 
