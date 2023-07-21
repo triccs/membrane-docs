@@ -6,7 +6,7 @@ description: MBRN is the liquidity backstop for the Membrane network
 
 The total supply of **MBRN** will initially be 100 million **MBRN**, with 90% allocated to the community, and 10% vested to pre-launch contributors (2 year cliff, 1 linear).
 
-### Governance (Autonomous Network Coordination)
+### Governance (Autonomous Network Co-Creation)
 
 The primary parameters set by communal governance are accepted collateral types and params. This allows the community to confer acknowledgement of additional risks corresponding to the collateral that are not visible on-chain, and therefore cannot be autonomously adjusted for.
 
