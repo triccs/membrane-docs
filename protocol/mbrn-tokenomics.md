@@ -6,7 +6,7 @@ description: MBRN is the liquidity backstop for the Membrane network
 
 The total supply of **MBRN** will be 100 million **MBRN**, with 90% allocated to the community, and 10% vested to pre-launch contributors (2 year cliff, 1 linear).
 
-### Governance
+### Governance (Autonomous Network Coordination)
 
 The primary parameters set by communal governance are accepted collateral types and params. This allows the community to confer acknowledgement of additional risks corresponding to the collateral that are not visible on-chain, and therefore cannot be autonomously adjusted for.
 
@@ -20,7 +20,7 @@ _**Note:** Vested allocations have no voting power but can submit proposals & re
 
 ### Value Flows
 
-Governance can toggle interest rate revenue flows to stakers, initially staked **MBRN** will receive all revenue. **MBRN**-denominated staking rewards are enabled on a schedule, for example 10% for 3 months. This makes sure the DAO isn't passively centralizing stake in stakers without a plan.
+Governance can toggle interest rate revenue flows to stakers, initially staked **MBRN** will receive all revenue. **MBRN**-denominated staking rewards are enabled on a schedule, for example 10% for 3 months. This makes sure the protocol isn't passively centralizing stake in stakers without a plan.
 
 **MBRN** has ownership over the protocol's liquidation fee, initially set at 1%. Governance can toggle a[ fee auction](../smart-contracts/mbrn-auction.md#startauction) to swap the fees if desired.
 

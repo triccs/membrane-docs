@@ -40,7 +40,7 @@ Note: Some of these have Quests on [Crew3](https://crew3.xyz/c/membrane/invite/r
 
 ### Community Structure
 
-* How can NFTs benefit DAOs/communities?
+* How can NFTs benefit communities?
 * Does governance need a recognition layer?
 * Can AI benefit the community and if so how?
 * How can we empower our community's creators to feel ownership over the Membrane brand?
