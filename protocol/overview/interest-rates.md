@@ -1,20 +1,20 @@
 ---
-description: How does CDT stabilize?
+description: How does CDT incentivize stability?
 ---
 
 # Interest Rates
 
 As the debt cap utilization **for an asset** increases, the **variable rate** rises linearly towards the "max" rate for the collateral type. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases.
 
-Below the arrow represents the debt cap utilization for an asset & shows the current interest rate. As rates increase there is more pressure for vault owners to repay their loans, releaseingpressure from the system.
+Below the arrow represents the debt cap utilization for an asset & shows the current interest rate. As rates increase there is more pressure for vault owners to repay their loans, releasing pressure from liabilities in the system.
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## **Rate Influence 1: Price**&#x20;
 
-The rates act as described above when market price of **CDT** is within some margin of error in comparsion to the redemption price (peg). Outside, the rates will react to the price to incentivize **CDT** stability. This means if above peg, rates will trend towards 0 & below peg, rates will increase in proportion to the distance from the peg.
+The rates act as described above when the market price of **CDT** is within some margin of error in comparsion to the redemption price (peg). Outside of said band, the rates will be influenced by price action to incentivize **CDT** stability. This means if above peg, rates will trend towards 0 & below peg, rates will increase in proportion to the distance from the peg.
 
-The system operates optimally with a stable debt token which is why the system prioritizes stability incentives over revenue.
+The system operates optimally with a stable debt token which is why the system prioritizes stability incentives over short-term revenue.
 
 ## Rate Influence 2: Liquidity
 
@@ -24,4 +24,4 @@ The debt cap is correlated to **CDT** liquidity. This translates to increased ra
 
 ## Rate Influence 3: Collateral Composition
 
-Collateral types are given maximum supply ratios which when broken, increase rates.
+Collateral types are given maximum supply ratios which when broken, increases rates.

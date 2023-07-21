@@ -6,9 +6,9 @@ description: Non-exhaustive list of missions that benefit the community
 
 **Github Guide**: [https://github.com/MembraneFinance/membrane-core/blob/main/docs/CONTRIBUTING.md](https://github.com/MembraneFinance/membrane-core/blob/main/docs/CONTRIBUTING.md)
 
-If using information from another creator please be sure to credit/link them or the post. This benefits everyone by strengthening your relationship with other creators & getting additional attention on great content.
+**NOTE:** If using information from another creator please be sure to credit/link them or the post. This benefits everyone by strengthening your relationship with other creators & getting additional attention on great content.
 
-Each contract tab has value details and descriptions. [_What is Membrane?_](../) has a quick list of Membrane **U**nique **S**elling **P**ropostions & the [Overview](overview/#protocol-functions) has a condensed description of the main functionalities.
+Each contract tab has valuable details and descriptions. [_What is Membrane?_](../) has a quick list of Membrane **U**nique **S**elling **P**ropostions & the [Overview](overview/#protocol-functions) has a condensed description of the main functionalities.
 
 ## Content Prompts
 
@@ -34,7 +34,7 @@ Note: Some of these have Quests on [Crew3](https://crew3.xyz/c/membrane/invite/r
 * How should stables mitigate risks between chains?
 * What benefits do DEXs provide the ecosystem? What do stables? Lending? DeFi?
 * Are there situations where stable issuers can safely mint unbacked stables?
-* How do decentralized stables benefit from collaborating?
+* How do decentralized stables benefit from collaboration?
 * How should protocols define market focuses?
 * Best way to obtain sustainable liquidity?
 

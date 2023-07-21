@@ -8,7 +8,7 @@ description: Non-exhaustive list of composability options for Membrane contracts
 
 ### DEXs
 
-**CDT** provides LPs with a stable pair asset and predictable minimums for ownership of total volume.&#x20;
+**CDT** provides LPs with a stable pair asset and predictable minimums for ownership of total volume due to the liquidity multiplier capping supply.&#x20;
 
 A stable asset adds stableswap LPs which provide DEXs with substantial reoccuring volume as traders arbitrage differences in system design on top of the usual dose of DEX arb opportunities.
 
@@ -23,7 +23,7 @@ The liquidation pools, [Liquidation Queue](../smart-contracts/liquidation-queue.
 **Notes:**
 
 * For most strategies vaults only need to control the **CDT**.
-* [Margin Proxy](../smart-contracts/margin-proxy.md) has looping functionalities for any leverage strategies.
+* [Margin Proxy](../smart-contracts/margin-proxy.md) has example looping functionalities for any leverage strategies.
 
 ### Collateral for Derivatives, Options, Lending & Perps
 

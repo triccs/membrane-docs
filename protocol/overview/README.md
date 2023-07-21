@@ -22,4 +22,4 @@ In the **Mint** stage, the owner can mint CDT up to the borrowable LTV
 
 Anyone can **Repay** any outstanding CDT loans
 
-If the LTV ratio exceeds maximum LTV (meaning there isn’t enough collateral to safely guarantee the backed value of the CDT assets), the vault will be **Liquidated**.
+If the LTV ratio exceeds maximum LTV (meaning there isn’t enough collateral to safely guarantee the backed value of the CDT assets), the vault will be available for **Liquidation**.

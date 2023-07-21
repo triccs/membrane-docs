@@ -1,10 +1,10 @@
 # Asset Bundles
 
-Membrane's vault system allows anyone to "bundle" accepted assets in a single position. Bundling assets treats their value as a single unit, proportional to the respective value and parameters of each underlying asset. This enables vaults to hedge liquidation risk via bundling with less volatile assets, or uncorrelated assets.
+Membrane's vault system allows anyone to "bundle" accepted assets in a single position. Bundling assets treats their value as a single unit, proportional to the respective value and parameters of each underlying asset. This enables vaults to hedge liquidation risk via bundling with less volatile assets or uncorrelated assets.
 
-**Ex**: Bundling OSMO & USDC to reduce the vault's volatility
+**Ex**: Bundling OSMO & USDC to reduce the vault's exposure to OSMO volatility
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Unbumdled vs. Bundled </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>Unbundled vs. Bundled </p></figcaption></figure>
 
 Interest rates, LTV and supply/debt cap distribution are all affected by the bundling process, but for simplicity we'll use an example with only LTV.\
 \

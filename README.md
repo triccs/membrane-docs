@@ -1,7 +1,8 @@
 ---
 description: >-
-  Membrane uses collateralized debt positions to synthesize leverage demand into
-  composable debt tokens that traverse the Cosmos in the form of $CDT.
+  Membrane is an experimental protocol that uses collateralized debt positions
+  to synthesize credit demand into composable debt tokens that traverse the
+  Cosmos in the form of $CDT.
 ---
 
 # What is Membrane?
