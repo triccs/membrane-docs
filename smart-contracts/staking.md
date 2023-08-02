@@ -12,6 +12,7 @@ description: MBRN Staking contract
 * Can't unstake if you have voted on an active proposal or an executable proposal that Governance has passed, that you have voted Yes to, hasn't executed its messages
 * All delegation and unstaking actions claim rewards. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
 * You can disable the voting power for delegations which makes them commission only
+* The amount of stake used to calculate vesting revenue is toggleable using [UpdateConfig's ](staking.md#updateconfig)vesting\_rev\_multiplier. WARNING: setting to 0 is permanent
 
 ## InstantiateMsg
 
