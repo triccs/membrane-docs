@@ -61,11 +61,12 @@ pub enum ExecuteMsg {
         unstaking_period: Option<u64>, 
         max_commission_rate: Option<Decimal>, 
         keep_raw_cdt: Option<bool>,
+        vesting_rev_multiplier: Option<Decimal>,
     }
 }
 ```
 
-<table><thead><tr><th width="248">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule</td></tr><tr><td><code>*fee_wait_period</code></td><td>u64</td><td>Waiting period before stakers earn fees from FeeEvents</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days</td></tr><tr><td><code>*max_commission_rate</code></td><td>Decimal</td><td>Max commission rate</td></tr><tr><td><code>*keep_raw_cdt</code></td><td>bool</td><td>Toggle to give to stakers or send to the fee auction to exchange for a different asset</td></tr></tbody></table>
+<table><thead><tr><th width="248">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule</td></tr><tr><td><code>*fee_wait_period</code></td><td>u64</td><td>Waiting period before stakers earn fees from FeeEvents</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days</td></tr><tr><td><code>*max_commission_rate</code></td><td>Decimal</td><td>Max commission rate</td></tr><tr><td><code>*keep_raw_cdt</code></td><td>bool</td><td>Toggle to give to stakers or send to the fee auction to exchange for a different asset</td></tr><tr><td><code>*vesting_rev_multiplier</code></td><td>Decimal</td><td>Transform the % of its revenue the vesting contract receives</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -243,6 +244,7 @@ pub struct Config {
     pub unstaking_period: u64,
     pub max_commission_rate: Decimal,
     pub keep_raw_cdt: bool,
+    pub vesting_rev_multiplier: Decimal,
     pub positions_contract: Option<Addr>,
     pub auction_contract: Option<Addr>,
     pub vesting_contract: Option<Addr>,
