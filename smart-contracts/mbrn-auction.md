@@ -130,23 +130,25 @@ pub struct UpdateConfig {
     pub initial_discount: Option<Decimal>,
     pub discount_increase_timeframe: Option<u64>,
     pub discount_increase: Option<Decimal>,
+    pub send_to_stakers: Option<bool>,
 }
 ```
 
-| Key                            | Type    | Description                                                     |
-| ------------------------------ | ------- | --------------------------------------------------------------- |
-| `*owner`                       | String  | Contract owner                                                  |
-| `*oracle_contract`             | String  | Oracle contract address                                         |
-| `*osmosis_proxy`               | String  | Osmosis Proxy address                                           |
-| `*mbrn_denom`                  | String  | MBRN denom                                                      |
-| `*positions_contract`          | String  | Positions contract address                                      |
-| `*governance_contract`         | String  | Governance contract address                                     |
-| `*staking_contract`            | String  | Staking contract address                                        |
-| `*cdt_denom`                   | String  | CDT denom                                                       |
-| `*twap_timeframe`              | u64     | TWAP timeframe for oracle queries                               |
-| `*initial_discount`            | Decimal | Initial auction MBRN price discount                             |
-| `*discount_increase_timeframe` | u64     | Timeframe in which the multiple of discount\_increase increases |
-| `*discount_increase`           | Decimal | Increase in discount per unit of discount\_increase\_timeframe  |
+| Key                            | Type    | Description                                                       |
+| ------------------------------ | ------- | ----------------------------------------------------------------- |
+| `*owner`                       | String  | Contract owner                                                    |
+| `*oracle_contract`             | String  | Oracle contract address                                           |
+| `*osmosis_proxy`               | String  | Osmosis Proxy address                                             |
+| `*mbrn_denom`                  | String  | MBRN denom                                                        |
+| `*positions_contract`          | String  | Positions contract address                                        |
+| `*governance_contract`         | String  | Governance contract address                                       |
+| `*staking_contract`            | String  | Staking contract address                                          |
+| `*cdt_denom`                   | String  | CDT denom                                                         |
+| `*twap_timeframe`              | u64     | TWAP timeframe for oracle queries                                 |
+| `*initial_discount`            | Decimal | Initial auction MBRN price discount                               |
+| `*discount_increase_timeframe` | u64     | Timeframe in which the multiple of discount\_increase increases   |
+| `*discount_increase`           | Decimal | Increase in discount per unit of discount\_increase\_timeframe    |
+| `*send_to_stakers`             | bool    | True to send FeeAuction assets to Stakers, defaults to Governance |
 
 &#x20;\* = optional
 
@@ -176,6 +178,7 @@ pub struct Config {
     pub initial_discount: Decimal,
     pub discount_increase_timeframe: u64, //in seconds
     pub discount_increase: Decimal, //% increase
+    pub send_to_stakers: bool,
 }
 ```
 
