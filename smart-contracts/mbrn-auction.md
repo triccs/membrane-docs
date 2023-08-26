@@ -80,7 +80,7 @@ pub enum ExecuteMsg {
 
 ### `SwapForMBRN`
 
-Swap for MBRN with CDT
+Swap for discounted MBRN with CDT
 
 ```
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -90,9 +90,9 @@ pub enum ExecuteMsg {
 }
 ```
 
-### `SwapWithMBRN`
+### `SwapForFee`
 
-Swap with MBRN for fee assets
+Swap for discounted fees with the configuration's desired asset
 
 ```
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
