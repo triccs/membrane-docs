@@ -570,7 +570,7 @@ pub struct Basket {
     pub lastest_collateral_rates: Vec<Rate>, 
     pub multi_asset_supply_caps: Vec<MultiAssetSupplyCap>,
     pub credit_asset: Asset, 
-    pub credit_price: Decimal, 
+    pub credit_price: PriceResponse, 
     pub base_interest_rate: Decimal, 
     pub pending_revenue: Uint128,
     pub credit_last_accrued: u64,
