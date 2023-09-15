@@ -95,9 +95,12 @@ pub enum AssetInfo {
 }
 
 pub struct AssetOracleInfo {
-    pub osmosis_pool_for_twap: TWAPPoolInfo,
+    pub basket_id: Uint128,
+    pub pyth_price_feed_id: Option<String>,
     pub pools_for_osmo_twap: Vec<TWAPPoolInfo>,
     pub is_usd_par: bool,
+    pub lp_pool_info: Option<PoolInfo>,
+    pub decimals: u64,
 }
 
 pub struct TWAPPoolInfo {
