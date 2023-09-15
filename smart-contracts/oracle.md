@@ -4,7 +4,7 @@ description: Contract that holds price fetching information for assets
 
 # Oracle
 
-* This oracle contract queries Osmosis TWAP and Pyth network for prices. It's recurrent oracle is OSMO denominated TWAP prices that are then used later to produce USD(-par) prices. The Pyth OSMO/USD price is prioritized, if unavailable it medianizes the USD-par TWAP prices from Osmosis to denominate prices in. This means the CDT, the Positions contract's debt token, flips betweem USD and USD-par (USDC initially) pegs depending on USD availability.
+This contract queries Osmosis TWAP and Pyth network for prices. It has two paths for getting prices, either Pyth-only or Osmosis TWAP + Pyth's OSMO/USD. The latter option uses OSMO denominated TWAP prices that are then used later to produce USD(-par) prices && is necessary for bridged/wrapped tokens so the protocol can accurately price risk between variants (ex: Axelar USDC vs Wormhole USDC vs Noble native USDC). The Pyth OSMO/USD price is prioritized, if unavailable it medianizes the USD-par TWAP prices from Osmosis to denominate prices in. This means CDT, the Positions contract's debt token, flips betweem USD and USD-par (USDC initially) pegs depending on USD's price availability.
 
 ## InstantiateMsg
 
