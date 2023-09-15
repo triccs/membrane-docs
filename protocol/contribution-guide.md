@@ -8,7 +8,10 @@ description: Non-exhaustive list of missions that benefit the community
 
 **NOTE:** If using information from another creator please be sure to credit/link them or the post. This benefits everyone by strengthening your relationship with other creators & getting additional attention on great content.
 
-Each contract tab has valuable details and descriptions. [_What is Membrane?_](../) has a quick list of Membrane **U**nique **S**elling **P**ropostions & the [Overview](overview/#protocol-functions) has a condensed description of the main functionalities.
+Each contract tab has valuable details and descriptions. [_What is Membrane?_](../) has a quick list of Membrane **U**nique **S**elling **P**ropostions & the [Overview](overview/#protocol-functions) has a condensed description of the main functionalities.\
+
+
+Create an alternative or run an instance of the first frontend: [https://github.com/triccs/membrane-frontend](https://github.com/triccs/membrane-frontend)
 
 ## Content Prompts
 
