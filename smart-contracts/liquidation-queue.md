@@ -120,8 +120,8 @@ Repays for a Position and earns discounted collateral for the bidders. Only used
 pub enum ExecuteMsg {
     Liquidate { 
     //From Positions Contract
-        credit_price: Decimal, 
-        collateral_price: Decimal,
+        credit_price: PriceResponse, 
+        collateral_price: PriceResponse,
         collateral_amount: Uint256,
         bid_for: AssetInfo,
     //For Repayment 
@@ -131,7 +131,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-<table><thead><tr><th width="227.66666666666669">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>credit_price</code></td><td>Decimal</td><td>Credit repayment price</td></tr><tr><td><code>collateral_price</code></td><td>Decimal</td><td>Collateral TWAP price</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount to liquidate</td></tr><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Collateral asset info</td></tr><tr><td><code>position_id</code></td><td>Uint128</td><td>Position Info</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Position Info</td></tr></tbody></table>
+<table><thead><tr><th width="227.66666666666669">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>credit_price</code></td><td>PriceResponse</td><td>Credit repayment price</td></tr><tr><td><code>collateral_price</code></td><td>PriceResponse</td><td>Collateral TWAP price</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount to liquidate</td></tr><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Collateral asset info</td></tr><tr><td><code>position_id</code></td><td>Uint128</td><td>Position Info</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Position Info</td></tr></tbody></table>
 
 ### `ClaimLiquidations`
 
@@ -396,10 +396,10 @@ pub enum QueryMsg {
     //Position's contract is sending its basket.credit_price
     CheckLiquidatible { 
         bid_for: AssetInfo,
-        collateral_price: Decimal,
+        collateral_price: PriceResponse,
         collateral_amount: Uint256,
         credit_info: AssetInfo,
-        credit_price: Decimal,
+        credit_price: PriceResponse,
     }
 }
 
@@ -410,7 +410,7 @@ pub struct LiquidatibleResponse {
 
 ```
 
-<table><thead><tr><th width="235">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Asset the Queue is bidding for</td></tr><tr><td><code>collateral_price</code></td><td>Decimal</td><td>Price of collateral being bid for</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount</td></tr><tr><td><code>credit_info</code></td><td>AssetInfo</td><td>Asset being bid with</td></tr><tr><td><code>credit_price</code></td><td>Decimal</td><td>Bid_with price</td></tr></tbody></table>
+<table><thead><tr><th width="235">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Asset the Queue is bidding for</td></tr><tr><td><code>collateral_price</code></td><td>PriceResponse</td><td>Price of collateral being bid for</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount</td></tr><tr><td><code>credit_info</code></td><td>AssetInfo</td><td>Asset being bid with</td></tr><tr><td><code>credit_price</code></td><td>PriceResponse</td><td>Bid_with price</td></tr></tbody></table>
 
 ### `UserClaims`
 
