@@ -12,7 +12,7 @@ Bids are consumed from the bid pools in increasing order of premium rate (e.g 2%
 
 To prevent bots from sniping loans, submitted bids are only activated after `wait_period` has expired, unless the total bid amount falls under the `bid_threshold`, in which case bids will be directly activated upon submission.&#x20;
 
-**Warning:** _Threshold should be larger than the largest single liquidation amount to prevent waiting bids from causing InsufficientBids errors._
+**Warning:** _The cumulative threshold of the frequented slots should be larger than the largest single liquidation amount to prevent waiting bids from causing InsufficientBids errors._
 
 ### Source
 
