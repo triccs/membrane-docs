@@ -38,13 +38,14 @@ To prevent bots from sniping loans, submitted bids are only activated after `wai
 pub struct InstantiateMsg {
     pub owner: Option<String>,
     pub positions_contract: String,
+    pub osmosis_proxy_contract: String,
     pub waiting_period: u64, //seconds
     pub minimum_bid: Uint128,
     pub maximum_waiting_bids: u64,
 }
 ```
 
-<table><thead><tr><th width="233">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract, defaults to info.sender</td></tr><tr><td><code>positions_contract</code></td><td>String</td><td>CDP contract</td></tr><tr><td><code>waiting_period</code></td><td>u64</td><td>Waiting period for bids (secs)</td></tr><tr><td><code>*minimum_bid</code></td><td>Uint128</td><td>Minimum bid amount</td></tr><tr><td><code>*maximum_waiting_bid</code></td><td>u64</td><td>Maximum waiting bids</td></tr></tbody></table>
+<table><thead><tr><th width="233">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract, defaults to info.sender</td></tr><tr><td><code>positions_contract</code></td><td>String</td><td>CDP contract</td></tr><tr><td><code>osmosis_proxy_contract</code></td><td>String</td><td>Osmosis proxy contract</td></tr><tr><td><code>waiting_period</code></td><td>u64</td><td>Waiting period for bids (secs)</td></tr><tr><td><code>*minimum_bid</code></td><td>Uint128</td><td>Minimum bid amount</td></tr><tr><td><code>*maximum_waiting_bid</code></td><td>u64</td><td>Maximum waiting bids</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -124,14 +125,11 @@ pub enum ExecuteMsg {
         collateral_price: PriceResponse,
         collateral_amount: Uint256,
         bid_for: AssetInfo,
-    //For Repayment 
-        position_id: Uint128,
-        position_owner: String, 
     }
 }
 ```
 
-<table><thead><tr><th width="227.66666666666669">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>credit_price</code></td><td>PriceResponse</td><td>Credit repayment price</td></tr><tr><td><code>collateral_price</code></td><td>PriceResponse</td><td>Collateral TWAP price</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount to liquidate</td></tr><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Collateral asset info</td></tr><tr><td><code>position_id</code></td><td>Uint128</td><td>Position Info</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Position Info</td></tr></tbody></table>
+<table><thead><tr><th width="227.66666666666669">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>credit_price</code></td><td>PriceResponse</td><td>Credit repayment price</td></tr><tr><td><code>collateral_price</code></td><td>PriceResponse</td><td>Collateral TWAP price</td></tr><tr><td><code>collateral_amount</code></td><td>Uint256</td><td>Collateral amount to liquidate</td></tr><tr><td><code>bid_for</code></td><td>AssetInfo</td><td>Collateral asset info</td></tr></tbody></table>
 
 ### `ClaimLiquidations`
 
@@ -211,6 +209,8 @@ Update Config
 pub enum ExecuteMsg {
     UpdateConfig{
         owner: Option<String>,
+        positions_contract: Option<String>,
+        osmosis_proxy_contract: Option<String>,
         waiting_period: Option<u64>,
         minimum_bid: Option<Uint128>,
         maximum_waiting_bids: Option<u64>,
@@ -218,7 +218,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-<table><thead><tr><th width="251">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract</td></tr><tr><td><code>*waiting_period</code></td><td>u64</td><td>Bid waiting period in seconds</td></tr><tr><td><code>*minimum_bid</code></td><td>Uint128</td><td>Minimum Bid amount</td></tr><tr><td><code>*maximum_waiting_bids</code></td><td>u64</td><td>Maximum waiting bids</td></tr></tbody></table>
+<table><thead><tr><th width="251">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of the contract</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract</td></tr><tr><td><code>*osmosis_proxy_contract</code></td><td>String</td><td>Osmosis Proxy contract</td></tr><tr><td><code>*waiting_period</code></td><td>u64</td><td>Bid waiting period in seconds</td></tr><tr><td><code>*minimum_bid</code></td><td>Uint128</td><td>Minimum Bid amount</td></tr><tr><td><code>*maximum_waiting_bids</code></td><td>u64</td><td>Maximum waiting bids</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -237,7 +237,8 @@ pub enum QueryMsg {
 
 pub struct Config {
     pub owner: String, 
-    pub positions_contract: String,
+    pub positions_contract: Addr,
+    pub osmosis_proxy_contract: Addr,
     pub added_assets: Option<Vec<AssetInfo>>,
     pub waiting_period: u64,
     pub bid_asset: AssetInfo,

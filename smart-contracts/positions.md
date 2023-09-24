@@ -683,10 +683,17 @@ pub enum QueryMsg {
 pub struct LiquidationPropagation {
     pub per_asset_repayment: Vec<Decimal>,
     pub liq_queue_leftovers: Decimal, 
-    pub stability_pool: Decimal,   
+    pub stability_pool: Decimal,      
     pub user_repay_amount: Decimal,
     pub positions_contract: Addr,
-    pub position_info: UserInfo,
+    pub sp_liq_fee: Decimal,
+    pub cAsset_ratios: Vec<Decimal>, 
+    pub cAsset_prices: Vec<PriceResponse>,
+    pub target_position: Position,
+    pub liquidated_assets: Vec<cAsset>,
+    pub position_owner: Addr,
+    pub basket: Basket,
+    pub config: Config,
 }
 
 ```
