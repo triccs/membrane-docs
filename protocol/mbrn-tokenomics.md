@@ -4,7 +4,7 @@ description: MBRN is the liquidity backstop for the Membrane network
 
 # MBRN Tokenomics
 
-The total supply of **MBRN** will initially be 100 million **MBRN**, with 90% allocated to the community, and 10% vested to pre-launch contributors (2 year cliff, 1 linear).
+The total supply of **MBRN** will initially be 100 million **MBRN**, with 91% allocated to the community, and 9% vested to pre-launch contributors (2 year cliff, 1 linear).
 
 ### Governance (Autonomous Network Co-Creation)
 
