@@ -8,6 +8,7 @@ description: Membrane Governance contract
 * &#x20;Voting power per proposal is based on power when the proposal was created.
 * Expedited Proposals can be called by Addresses w/ a [vested allocation ](vesting.md)& should be used only for time-sensitive emergencies
 * Proposals can be aligned with by stakers to pass the active threshold, any pending proposal can be deleted within 1 day
+* Staker's vote doesn't override the Delegate's vote&#x20;
 
 ## InstantiateMsg
 
