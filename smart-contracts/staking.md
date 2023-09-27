@@ -10,7 +10,7 @@ description: MBRN Staking contract
 * The [Vesting](vesting.md) contract doesn't receive inflationary **MBRN** rewards.
 * MBRN-denominated staking rewards are enabled on a schedule to ensure the DAO isn't passively centralizing stake in stakers
 * Can't unstake if you have voted on an active proposal or an executable proposal that Governance has passed, that you have voted Yes to, hasn't executed its messages
-* All delegation and unstaking actions claim rewards but Delegate's only receive claims after the delegator has claimed. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
+* All delegation and unstaking actions claim rewards but Delegate's only receive claims after the delegator has claimed. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg, but NOTE: during unstaking, a manual claim will restake your **MBRN**.
 * You can disable the voting power for delegations which makes them commission only
 * The amount of stake used to calculate vesting revenue is toggleable using [UpdateConfig's ](staking.md#updateconfig)vesting\_rev\_multiplier. WARNING: setting to 0 is permanent
 
