@@ -10,7 +10,7 @@ description: MBRN Staking contract
 * The [Vesting](vesting.md) contract doesn't receive inflationary **MBRN** rewards.
 * MBRN-denominated staking rewards are enabled on a schedule to ensure the DAO isn't passively centralizing stake in stakers
 * Can't unstake if you have voted on an active proposal or an executable proposal that Governance has passed, that you have voted Yes to, hasn't executed its messages
-* All delegation and unstaking actions claim rewards. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
+* All delegation and unstaking actions claim rewards but Delegate's only receive claims after the delegator has claimed. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg
 * You can disable the voting power for delegations which makes them commission only
 * The amount of stake used to calculate vesting revenue is toggleable using [UpdateConfig's ](staking.md#updateconfig)vesting\_rev\_multiplier. WARNING: setting to 0 is permanent
 
@@ -25,7 +25,6 @@ pub struct InstantiateMsg {
     pub vesting_contract: Option<String>,
     pub osmosis_proxy: Option<String>,   
     pub incentive_schedule: Option<StakeDistribution>,
-    pub fee_wait_period: Option<u64>,  
     pub unstaking_period: Option<u64>,    
     pub mbrn_denom: String,
 }
@@ -36,7 +35,7 @@ pub struct StakeDistribution {
 }
 ```
 
-<table><thead><tr><th width="254">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule, defaults to 10% for 3 months</td></tr><tr><td><code>*fee_wait_period</code></td><td>u64</td><td>Waiting period before stakers earn fees from FeeEvents</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days, defaults to 3 days </td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr></tbody></table>
+<table><thead><tr><th width="254">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule, defaults to 10% for 3 months</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days, defaults to 3 days </td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -58,7 +57,6 @@ pub enum ExecuteMsg {
         osmosis_proxy: Option<String>,
         mbrn_denom: Option<String>,  
         incentive_schedule: Option<StakeDistribution>,
-        fee_wait_period: Option<u64>,     
         unstaking_period: Option<u64>, 
         max_commission_rate: Option<Decimal>, 
         keep_raw_cdt: Option<bool>,
@@ -67,7 +65,7 @@ pub enum ExecuteMsg {
 }
 ```
 
-<table><thead><tr><th width="248">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule</td></tr><tr><td><code>*fee_wait_period</code></td><td>u64</td><td>Waiting period before stakers earn fees from FeeEvents</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days</td></tr><tr><td><code>*max_commission_rate</code></td><td>Decimal</td><td>Max commission rate</td></tr><tr><td><code>*keep_raw_cdt</code></td><td>bool</td><td>Toggle to give to stakers or send to the fee auction to exchange for a different asset</td></tr><tr><td><code>*vesting_rev_multiplier</code></td><td>Decimal</td><td>Transform the % of its revenue the vesting contract receives</td></tr></tbody></table>
+<table><thead><tr><th width="248">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner</td></tr><tr><td><code>*positions_contract</code></td><td>String</td><td>Positions contract address</td></tr><tr><td><code>*auction_contract</code></td><td>String</td><td>Auction contract address</td></tr><tr><td><code>*vesting_contract</code></td><td>String</td><td>Vesting contract address</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract address</td></tr><tr><td><code>*mbrn_denom</code></td><td>String</td><td>MBRN full denom</td></tr><tr><td><code>*incentive_schedule</code></td><td>StakeDistribution</td><td>Desired staking rate schedule</td></tr><tr><td><code>*unstaking_period</code></td><td>u64</td><td>Unstaking period in days</td></tr><tr><td><code>*max_commission_rate</code></td><td>Decimal</td><td>Max commission rate</td></tr><tr><td><code>*keep_raw_cdt</code></td><td>bool</td><td>Toggle to give to stakers or send to the fee auction to exchange for a different asset</td></tr><tr><td><code>*vesting_rev_multiplier</code></td><td>Decimal</td><td>Transform the % of its revenue the vesting contract receives</td></tr></tbody></table>
 
 &#x20;\* = optional
 
@@ -241,7 +239,6 @@ pub struct Config {
     pub owner: Addr,
     pub mbrn_denom: String,
     pub incentive_schedule: StakeDistribution,
-    pub fee_wait_period: u64,
     pub unstaking_period: u64,
     pub max_commission_rate: Decimal,
     pub keep_raw_cdt: bool,
