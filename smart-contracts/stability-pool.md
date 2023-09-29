@@ -19,7 +19,7 @@ We want this step of the liquidation mechanism to be reactive when low while not
 **Key Points:**
 
 * **Any user funds in the Stability Pool will be used to repay said user's positions if liquidated. Meaning depositing in the SP doesn't increase liquidation risk for the user.**
-* **Unstaked deposits are still used to liquidate.**
+* **Unstaked deposits are still used to liquidate but accrue no incentives.**
 * **Withdrawals that would leave less than the minmum deposit amount will withdraw the remaining bid.**
 
 ## InstantiateMsg
