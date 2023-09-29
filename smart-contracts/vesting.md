@@ -14,13 +14,14 @@ pub struct InstantiateMsg {
     pub owner: Option<String>,
     pub initial_allocation: Uint128,
     pub pre_launch_contributors: String,
+    pub pre_launch_community: Vec<String>
     pub mbrn_denom: String,
     pub osmosis_proxy: String,
     pub staking_contract: String,
 }
 ```
 
-<table><thead><tr><th width="232">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of contract</td></tr><tr><td><code>initial_allocation</code></td><td>Uint128</td><td>Builder's Allocation</td></tr><tr><td><code>pre_launch_contributors</code></td><td>String</td><td>Address receiving pre-launch contributors allocation</td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN token denom</td></tr><tr><td><code>osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy  contract address</td></tr><tr><td><code>staking_contract</code></td><td>String</td><td>MBRN Staking contract address</td></tr></tbody></table>
+<table><thead><tr><th width="232">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Owner of contract</td></tr><tr><td><code>initial_allocation</code></td><td>Uint128</td><td>Builder's Allocation</td></tr><tr><td><code>pre_launch_contributors</code></td><td>String</td><td>Address receiving pre-launch contributors allocation</td></tr><tr><td><code>pre_launch_community</code></td><td>Vec&#x3C;String></td><td>Address receiving pre-launch community allocation</td></tr><tr><td><code>mbrn_denom</code></td><td>String</td><td>MBRN token denom</td></tr><tr><td><code>osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy  contract address</td></tr><tr><td><code>staking_contract</code></td><td>String</td><td>MBRN Staking contract address</td></tr></tbody></table>
 
 &#x20;\* = optional
 
