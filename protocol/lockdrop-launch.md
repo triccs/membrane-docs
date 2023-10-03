@@ -12,4 +12,4 @@ After the creation of the 2 pools, the CDT/OSMO pool will receive incentives, 2M
 
 **Note:** The protocol is deployed before launch starts, so users can experiment beforehand. The entire process is handled by a [smart contract](https://github.com/MembraneFinance/membrane-core/tree/main/contracts/launch).
 
-**NOTE:** Claimed **MBRN** is staked
+**NOTE: MBRN** is vested linearly & staked when claimed
