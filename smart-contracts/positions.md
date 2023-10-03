@@ -5,7 +5,7 @@ The Positions contract implements the logic for Collateralized Debt Positions (C
 The contract also contains the logic for initiating liquidations of CDPs and sending assets to the DEX router but external debt repayment logic goes through the **Queue** and **Stability Pool** contracts.\
 
 
-**WARNING**: Having more than 3-4 separate Positions will make it impossible to unstake in Staking & withdraw in the Stability Pool, due to the gas cost of the accrual messages.
+**WARNING**: Having more than 3-4 separate Positions will make it impossible to unstake in Staking & withdraw in the Stability Pool/Discount Vault, due to the gas cost of the accrual messages.
 
 **Notes:**&#x20;
 
