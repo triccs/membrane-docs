@@ -4,9 +4,9 @@ description: How does CDT incentivize stability?
 
 # Interest Rates
 
-As the debt cap utilization **for an asset** increases, the **variable rate** rises linearly towards the "max" rate for the collateral type. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases.
+As the debt cap utilization **for an asset** increases, the **variable rate** rises linearly towards the soft  "max" rate for the collateral type. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases. Rates will increase multiplicatively if the utilization continues past the soft max. Theoretically trending towards the market driven rate for the collateral type.
 
-Below the arrow represents the debt cap utilization for an asset & shows the current interest rate. As rates increase there is more pressure for vault owners to repay their loans, releasing pressure from liabilities in the system.
+Below, the arrow represents the debt cap utilization for an asset & shows the current interest rate. As rates increase there is more pressure for vault owners to repay their loans, releasing pressure from liabilities in the system.
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
