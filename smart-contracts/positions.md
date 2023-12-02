@@ -37,10 +37,32 @@ pub struct InstantiateMsg {
     pub debt_auction: Option<String>,
     pub liquidity_contract: Option<String>,
     pub discounts_contract: Option<String>,
+    /// Basket Creation struct
+    pub create_basket: CreateBasket,
+}
+
+#[cw_serde]
+pub struct CreateBasket {
+    /// Basket ID
+    pub basket_id: Uint128,
+    /// Collateral asset types.
+    /// Note: Also used to tally asset amounts for ease of calculation of Basket ratios
+    pub collateral_types: Vec<cAsset>,
+    /// Creates native denom for credit_asset
+    pub credit_asset: Asset, 
+    /// Credit redemption price
+    pub credit_price: Decimal,
+    /// Base collateral interest rate.
+    /// Used to calculate the interest rate for each collateral type.
+    pub base_interest_rate: Option<Decimal>,
+    /// To measure liquidity for the credit asset
+    pub credit_pool_infos: Vec<PoolType>, 
+    /// Liquidation queue for collateral assets
+    pub liq_queue: Option<String>,
 }
 ```
 
-<table><thead><tr><th width="267.4108280254777">Key</th><th width="206">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner that defaults to info.sender</td></tr><tr><td><code>oracle_time_limit</code></td><td>u64</td><td>Limit in seconds that the oracle has before the values are invalid</td></tr><tr><td><code>debt_minimum</code></td><td>Uint128</td><td>Minimum value in debt per position</td></tr><tr><td><code>liq_fee</code></td><td>Decimal</td><td>Fee that goes to the protocol during liquidations</td></tr><tr><td><code>collateral_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>credit_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>rate_slope_multiplier</code></td><td>Decimal</td><td>Interest rate slope multiplier</td></tr><tr><td><code>base_debt_cap_multiplier</code></td><td>Uint128</td><td>Base debt cap multiplier</td></tr><tr><td><code>*stability_pool</code></td><td>String</td><td>Stability Pool Contract</td></tr><tr><td><code>*dex_router</code></td><td>String</td><td>DEX Router Contract</td></tr><tr><td><code>*staking_contract</code></td><td>String</td><td>MBRN staking contract</td></tr><tr><td><code>*oracle_contract</code></td><td>String</td><td>Oracle contract</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract to use SDK modules</td></tr><tr><td><code>*debt_auction</code></td><td>String</td><td>Auction Contract that sells protocol tokens to repay debt</td></tr><tr><td><code>*liquidity_contract</code></td><td>String</td><td>Liquidity Check contract address</td></tr><tr><td><code>*discounts_contract</code></td><td>String</td><td>System Discounts contract address</td></tr></tbody></table>
+<table><thead><tr><th width="267.4108280254777">Key</th><th width="206">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*owner</code></td><td>String</td><td>Contract owner that defaults to info.sender</td></tr><tr><td><code>oracle_time_limit</code></td><td>u64</td><td>Limit in seconds that the oracle has before the values are invalid</td></tr><tr><td><code>debt_minimum</code></td><td>Uint128</td><td>Minimum value in debt per position</td></tr><tr><td><code>liq_fee</code></td><td>Decimal</td><td>Fee that goes to the protocol during liquidations</td></tr><tr><td><code>collateral_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>credit_twap_timeframe</code></td><td>u64</td><td>TWAP length in minutes</td></tr><tr><td><code>rate_slope_multiplier</code></td><td>Decimal</td><td>Interest rate slope multiplier</td></tr><tr><td><code>base_debt_cap_multiplier</code></td><td>Uint128</td><td>Base debt cap multiplier</td></tr><tr><td><code>*stability_pool</code></td><td>String</td><td>Stability Pool Contract</td></tr><tr><td><code>*dex_router</code></td><td>String</td><td>DEX Router Contract</td></tr><tr><td><code>*staking_contract</code></td><td>String</td><td>MBRN staking contract</td></tr><tr><td><code>*oracle_contract</code></td><td>String</td><td>Oracle contract</td></tr><tr><td><code>*osmosis_proxy</code></td><td>String</td><td>Osmosis Proxy contract to use SDK modules</td></tr><tr><td><code>*debt_auction</code></td><td>String</td><td>Auction Contract that sells protocol tokens to repay debt</td></tr><tr><td><code>*liquidity_contract</code></td><td>String</td><td>Liquidity Check contract address</td></tr><tr><td><code>*discounts_contract</code></td><td>String</td><td>System Discounts contract address</td></tr><tr><td><code>create_basket</code></td><td>CreateBasket</td><td>Struct to create the contract's basket</td></tr></tbody></table>
 
 \* = optional
 
@@ -185,29 +207,6 @@ pub enum ExecuteMsg {
 
 &#x20;\* = optional&#x20;
 
-### `ClosePosition`
-
-Close position by selling collateral to repay debt
-
-```
-#[cw_serde]
-pub enum ExecuteMsg {
-    ClosePosition {
-        position_id: Uint128,
-        max_spread: Decimal,
-        send_to: Option<String>,
-    }
-}
-```
-
-| Key           | Type    | Description                                                  |
-| ------------- | ------- | ------------------------------------------------------------ |
-| `position_id` | Uint128 | Position ID                                                  |
-| `max_spread`  | Decimal | Spread used to ensure collateral sold repays the debt amount |
-| `*send_to`    | String  | Send withdrawn assets to from a closed position              |
-
-&#x20;\* = optional
-
 ### `LiqRepay`
 
 Repay function for [Stability Pool](stability-pool.md) liquidations. Used to repay insolvent positions and distribute liquidated funds.
@@ -307,29 +306,6 @@ pub struct UserInfo {
 <table><thead><tr><th>Key</th><th width="200">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*send_to</code></td><td>String</td><td>Address to send revenue to,</td></tr><tr><td><code>*repay_for</code></td><td>UserInfo</td><td>Position Info to repay for w/ revenue. To be used for BadDebt situations.</td></tr><tr><td><code>*amount</code></td><td>Uint128</td><td>Amount to mint, defaults to all</td></tr></tbody></table>
 
 &#x20;\* = optional
-
-### `CreateBasket`
-
-Add Basket to the Position's contract, only callable by the contract owner.
-
-```
-#[cw_serde]
-pub enum ExecuteMsg {
-    CreateBasket {
-        basket_id: Uint128,
-        collateral_types: Vec<cAsset>,
-        credit_asset: Asset,
-        credit_price: Option<Decimal>,
-        base_interest_rate: Option<Decimal>,
-        credit_pool_ids: Vec<u64>, //For liquidity measuring
-        liq_queue: Option<String>,
-    }
-}
-```
-
-<table><thead><tr><th width="243">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>basket_id</code></td><td>Uint128</td><td>Basket ID</td></tr><tr><td><code>collateral_type</code></td><td>Vec&#x3C;cAsset></td><td>List of accepted cAssets</td></tr><tr><td><code>credit_asset</code></td><td>Asset</td><td>Asset info for Basket's credit asset</td></tr><tr><td><code>*credit_price</code></td><td>Decimal</td><td>Price of credit in basket</td></tr><tr><td><code>*base_interest_rate</code></td><td>Decimal</td><td>Base interest rate for collateral types</td></tr><tr><td><code>credit_pool_ids</code></td><td>Vec&#x3C;u64></td><td>Used to measure credit liquidity in Osmosis</td></tr><tr><td><code>*liq_queue</code></td><td>String</td><td>Liquidation Queue contract</td></tr></tbody></table>
-
-\* = optional
 
 ### `EditBasket`
 
@@ -448,60 +424,6 @@ pub struct Config {
 }
 ```
 
-### `GetUserPositions`
-
-Returns all Positions from a user
-
-```
-#[cw_serde]
-pub enum QueryMsg {
-    GetUserPositions { 
-        user: String
-        limit: Option<u32>,
-    },
-}
-
-pub struct PositionResponse {
-    pub position_id: String,
-    pub collateral_assets: Vec<cAsset>,
-    pub cAsset_ratios: Vec<Decimal>,
-    pub credit_amount: String,
-    pub basket_id: String,
-    pub avg_borrow_LTV: Decimal,
-    pub avg_max_LTV: Decimal,        
-}
-```
-
-<table><thead><tr><th width="180">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>user</code></td><td>String</td><td>Position owner to query for</td></tr><tr><td><code>*limit</code></td><td>u32</td><td>Position Response limiter</td></tr></tbody></table>
-
-\* = optional
-
-### `GetPosition`
-
-Returns single Position data
-
-```
-#[cw_serde]
-pub enum QueryMsg {
-    GetPosition { 
-        position_id: Uint128, 
-        position_owner: String 
-    },
-}
-
-pub struct PositionResponse {
-    pub position_id: String,
-    pub collateral_assets: Vec<cAsset>,
-    pub cAsset_ratios: Vec<Decimal>,
-    pub credit_amount: String,
-    pub basket_id: String,
-    pub avg_borrow_LTV: Decimal,
-    pub avg_max_LTV: Decimal,        
-}
-```
-
-<table><thead><tr><th width="180">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>ID of Position</td></tr><tr><td><code>basket_id</code></td><td>Uint128</td><td>ID of Basket the Position is in </td></tr><tr><td><code>user</code></td><td>String</td><td>User that owns position</td></tr></tbody></table>
-
 ### `GetBasketRedeemability`
 
 Returns redemption info for viable basket positions
@@ -535,7 +457,19 @@ pub enum QueryMsg {
     GetBasketPositions { 
         start_after: Option<String>,
         limit: Option<u32>,
+        /// Single position
+        user_info: Option<UserInfo>,
+        /// Single user
+        user: Option<String>,
     },
+}
+
+#[cw_serde]
+pub struct UserInfo {
+    /// Position ID
+    pub position_id: Uint128,
+    /// Position owner
+    pub position_owner: String,
 }
 
 pub struct PositionsResponse {
@@ -551,7 +485,7 @@ pub struct Position {
 }
 ```
 
-<table><thead><tr><th width="190">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*start_after</code></td><td>String</td><td>User address to start after</td></tr><tr><td><code>*limit</code></td><td>u32</td><td>Limit to # of users parsed through</td></tr></tbody></table>
+<table><thead><tr><th width="190">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>*start_after</code></td><td>String</td><td>User address to start after</td></tr><tr><td><code>*limit</code></td><td>u32</td><td>Limit to # of users parsed through</td></tr><tr><td><code>*user_info</code></td><td>UserInfo</td><td>Position info for a singe position</td></tr><tr><td><code>*user</code></td><td>String</td><td>User address to query positions for</td></tr></tbody></table>
 
 \* = optional
 
@@ -620,26 +554,6 @@ pub struct BadDebtResponse {
     pub has_bad_debt: Vec<(PositionUserInfo, Uint128)>,
 }
 ```
-
-### `GetPositionInsolvency`
-
-Returns a single position's insolvency info
-
-```
-#[cw_serde]
-pub enum QueryMsg {
-    GetPositionInsolvency {
-        position_id: Uint128,
-        position_owner: String,
-    }
-}
-
-pub struct InsolvencyResponse {
-    pub insolvent_positions: Vec<InsolventPosition>,
-}
-```
-
-<table><thead><tr><th width="212">Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>position_id</code></td><td>Uint128</td><td>Position ID to query</td></tr><tr><td><code>position_owner</code></td><td>String</td><td>Owner of the position</td></tr></tbody></table>
 
 ### `GetCreditRate`
 

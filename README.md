@@ -28,6 +28,5 @@ description: >-
 ## Unique User Interactions
 
 * [**Bundles** ](protocol/overview/asset-bundles.md)enable users to create low-volatility or diversified collateral risk profiles
-* [Close ](smart-contracts/positions.md#closeposition)levered positions without manually unlooping
 * **Self liquidate** with CDT held in the [Stability Pool](smart-contracts/stability-pool.md)
 * Collateral [redemptions ](smart-contracts/positions.md#redeemcollateral)using CDT
