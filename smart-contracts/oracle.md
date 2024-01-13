@@ -14,6 +14,7 @@ pub struct InstantiateMsg {
     pub owner: Option<String>,
     pub positions_contract: Option<String>,
     pub osmosis_proxy_contract: Option<String>,
+    pub oracle_contract: Option<String>,
 }
 ```
 
@@ -24,6 +25,7 @@ pub struct InstantiateMsg {
 | `*owner`                  | String | Contract owner, defaults to info.sender |
 | `*positions_contract`     | String | Positions contract address              |
 | `*osmosis_proxy_contract` | String | Osmosis Proxy contract                  |
+| `*oracle_contract`        | String | Oracle contract                         |
 
 &#x20;\* = optional
 
