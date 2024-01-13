@@ -230,6 +230,90 @@ pub struct UpdateConfig {
 
 &#x20;\* = optional
 
+### `CreateOsmosisGauge`
+
+Use osmosis-std to create a gauge with assets in this contract
+
+```
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ExecuteMsg {
+    CreateOsmosisGauge {
+        gauge_msg: MsgCreateGauge
+    }
+}
+
+pub struct MsgCreateGauge {
+    pub is_perpetual: bool,
+    pub owner: ::prost::alloc::string::String,
+    pub distribute_to: ::core::option::Option<super::lockup::QueryCondition>,
+    pub coins: ::prost::alloc::vec::Vec<super::super::cosmos::base::v1beta1::Coin>,
+    pub start_time: ::core::option::Option<crate::shim::Timestamp>,
+    pub num_epochs_paid_over: u64,
+    pub pool_id: u64,
+}
+
+pub struct QueryCondition {
+    /// LockQueryType is a type of lock query, ByLockDuration | ByLockTime
+    pub lock_query_type: i32,
+    /// Denom represents the token denomination we are looking to lock up
+    pub denom: ::prost::alloc::string::String,
+    /// Duration is used to query locks with longer duration than the specified
+    /// duration. Duration field must not be nil when the lock query type is
+    /// `ByLockDuration`.
+    pub duration: ::core::option::Option<crate::shim::Duration>,
+    /// Timestamp is used by locks started before the specified duration.
+    /// Timestamp field must not be nil when the lock query type is `ByLockTime`.
+    /// Querying locks with timestamp is currently not implemented.
+    pub timestamp: ::core::option::Option<crate::shim::Timestamp>,
+}
+pub struct Duration {
+    pub seconds: i64,
+    pub nanos: i32,
+}
+pub struct Timestamp {
+    pub seconds: i64,
+    pub nanos: i32,
+}
+
+pub struct Coin {
+    pub denom: ::prost::alloc::string::String,
+    pub amount: ::prost::alloc::string::String,
+}
+```
+
+| Key         | Type           | Description                    |
+| ----------- | -------------- | ------------------------------ |
+| `gauge_msg` | MsgCreateGauge | Osmosis-std gauge creation msg |
+
+### `AddToOsmosisGauge`
+
+Use osmosis-std to add to a gauge, owned by this contract, with assets in this contract
+
+```
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub enum ExecuteMsg {
+    AddToOsmosisGauge {
+        gauge_msg: MsgAddToGauge 
+    }
+}
+
+pub struct MsgAddToGauge {
+    pub owner: ::prost::alloc::string::String,
+    pub gauge_id: u64,
+    pub rewards: ::prost::alloc::vec::Vec<super::super::cosmos::base::v1beta1::Coin>,
+}
+pub struct Coin {
+    pub denom: ::prost::alloc::string::String,
+    pub amount: ::prost::alloc::string::String,
+}
+```
+
+| Key         | Type          | Description                  |
+| ----------- | ------------- | ---------------------------- |
+| `gauge_msg` | MsgAddToGauge | Osmosis-std add to gauge msg |
+
 ## QueryMsg
 
 ### `Config`
