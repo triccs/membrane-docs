@@ -27,5 +27,3 @@ The debt cap is correlated to **CDT** liquidity. This translates to increased ra
 Collateral types are given maximum supply ratios which when broken, increases rates.
 
 The collateral's ratio of outstanding debt is also used to influence rates based on the ratio of its debt cap fulfilled. Optimally we'd want to calculate the debt distribution bottoms up from each individual Position, but because the composition ratio will change as price moves, it's impossible to do efficiently (we'd have to calc each position's ratio's every time). So instead we use the Basket's collateral ratios to distribution debt & calculate rates. This method is feasible because collateral isn't accounted for unless there is open debt in the Position.&#x20;
-
-This creates a relationship where a collateral's price decreasing will increase its rates proportionally to the amount of Positions solely comprised of said collateral since its ratio won't decrease with the price, i.e. its debt total won't decrease with its price.
