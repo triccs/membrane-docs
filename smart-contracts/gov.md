@@ -136,17 +136,21 @@ Check messages execution
 pub enum ExecuteMsg {
     CheckMessages {
         messages: Vec<ProposalMessage>,
+        msg_switch: Option<u64>
     }
 }
 
 //If passed you'll get returned 'ContractError::MessagesCheckPassed {}'
 #[error("Messages check passed. Nothing was committed to the blockchain")]
-    MessagesCheckPassed {},
+MessagesCheckPassed {}
 ```
 
-| Key        | Type                  | Description       |
-| ---------- | --------------------- | ----------------- |
-| `messages` | Vec\<ProposalMessage> | Messages to check |
+| Key           | Type                  | Description                                                                     |
+| ------------- | --------------------- | ------------------------------------------------------------------------------- |
+| `messages`    | Vec\<ProposalMessage> | Messages to check                                                               |
+| `*msg_switch` | u64                   | Switch to choose executable msgs to check after the above messages are executed |
+
+&#x20;\* = optional
 
 ### `CheckMessagesPassed`
 
