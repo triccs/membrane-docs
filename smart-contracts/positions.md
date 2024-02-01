@@ -11,11 +11,12 @@ The contract also contains the logic for initiating liquidations of CDPs and sen
 
 * [_**Deposits**_](positions.md#deposit) _take asset data directly from the message to ensure correctness._&#x20;
 * [_**Withdrawals**_ ](positions.md#withdraw)_are checked for validity (in the SubMsg reply) before state is permanently changed._&#x20;
-* [_**Supply caps**_](positions.md#editbasket) _don't affect withdrawals, in otherwords, they only restrict deposits. Can be set to 0 to set the collateral's debt\_cap to 0 which locks mints and spikes interest rates._
+* [_**Supply caps**_](positions.md#editbasket) _only restrict users that are causing the overage_
 * _Adding collateral assets adds a queue for them in Liq Queue contract and a price feed for them in the Oracle contract_
 * _LP share supply caps are based on its ratio without double counting its assets, though its debt is counted towards its pool assets' caps._
 * _Each credit\_asset has a contract level liquidity multiplier calculated as the sum of all multipliers of basket's with the same credit\_asset_&#x20;
 * _Negative rates are turned off when total basket debt is above the desired debt utilization_
+* _Hardcoded interest rate cap of 100%_
 
 ## InstantiateMsg
 
