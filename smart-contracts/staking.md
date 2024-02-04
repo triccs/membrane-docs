@@ -346,6 +346,7 @@ pub enum QueryMsg {
     Delegations {
         limit: Option<u32>,
         start_after: Option<String>,
+        end_before: Option<u64>,
         user: Option<String>,
     }
 }
@@ -370,11 +371,12 @@ pub struct Delegation {
 }
 ```
 
-|                |        |                                |
-| -------------- | ------ | ------------------------------ |
-| `*limit`       | u32    | Response limit                 |
-| `*start_after` | String | Start after governator address |
-| `*user`        | String | Query a specific user          |
+|                |        |                                 |
+| -------------- | ------ | ------------------------------- |
+| `*limit`       | u32    | Response limit                  |
+| `*start_after` | String | Start after governator address  |
+| `*end_before`  | u64    | End before timestamp in seconds |
+| `*user`        | String | Query a specific user           |
 
 &#x20;\* = optional
 
