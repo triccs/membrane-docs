@@ -160,7 +160,7 @@ The last endpoint which is executed only if all proposal messages have been pass
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
-    CheckMessagesPassed {}
+    CheckMessagesPassed { error: Option<bool> }
 }
 ```
 
