@@ -13,6 +13,7 @@ description: MBRN Staking contract
 * All delegation and unstaking actions claim rewards but Delegate's only receive claims after the delegator has claimed. if you dont want to restake the awarded **MBRN**, use the [ClaimRewards ](staking.md#claimrewards)msg, but NOTE: during unstaking, a manual claim will restake your **MBRN**.
 * You can disable the voting power for delegations which makes them commission only
 * The amount of stake used to calculate vesting revenue is toggleable using [UpdateConfig's ](staking.md#updateconfig)vesting\_rev\_multiplier. WARNING: setting to 0 is permanent
+* Unstaking will withdraw any withdrawable stake before attempting to unstake with the remaining withdraw\_amount. So if you simply want to claim withdrawable stake, unstake 0.
 
 ## InstantiateMsg
 
