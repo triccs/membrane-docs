@@ -5,7 +5,7 @@ description: MBRN Staking contract
 # Staking
 
 * The Positions contract uses this contract's [DepositFee ](staking.md#depositfee)to allocate liquidation fees to stakers staked at the time of the liquidation. There is a variable fee wait time.&#x20;
-* Rewards are earned in the unstaking period but have no voting power, as its primary use is to restrict sales prompted by an activated Debt Auction.&#x20;
+* No Rewards or Voting Power during the unstaking period, its primary use is to restrict sales prompted by an activated Debt Auction.&#x20;
 * Stakers can restake after starting to unstake if **MBRN** hasn't been withdrawn.&#x20;
 * The [Vesting](vesting.md) contract doesn't receive inflationary **MBRN** rewards.
 * MBRN-denominated staking rewards are enabled on a schedule to ensure the DAO isn't passively centralizing stake in stakers
