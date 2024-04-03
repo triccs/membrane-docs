@@ -14,7 +14,7 @@ Collateral deemed riskier will also have lower minimum collateral ratios (i.e. l
 \
 Risk type -> Mitigated By:\
 \- Systemic or Protocol Risk -> Supply/Debt Caps\
-\- Volatility Risk -> [Vol. Based Rates](overview/interest-rates.md#rate-influence-3-collateral-composition)\
+\- Volatility Risk -> [Vol. Based Rates](overview/interest-rates.md#rate-influence-4-volatility)\
 \- Liquidity Risk -> Stability Pool\
 \
 An amalgamation of them all will factor into the interest rate ranges decided by governance. In general, rates increase as caps approach their respective ratios to incentivize correction and vice versa.
