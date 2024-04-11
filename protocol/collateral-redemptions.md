@@ -10,5 +10,5 @@ Redemptions are opt-in for Position owners to ensure incentives are aligned and 
 
 Premiums allow the owners to determine their captured % of arbitrage from the repayment. On the other hand, arbitragers will only redeem the debt token when the depeg is larger than the desired premium, meaning the frequency of redemption for a position owner is correlated to their premium.
 
-**Ex:** If the debt token is ourchased at 97% of its peg, arbitragers would only be able to redeem at a max premium of 2% to profit. There are cases where a 3% max premium would be profitable depending on the spread between market and TWAP prices but that is rare and highly technical.
+**Ex:** If the debt token is purchased at 97% of its peg, arbitragers would only be able to redeem at a max premium of 2% to profit. There are cases where a 3% max premium would be profitable depending on the spread between market and TWAP prices but that is rare and highly technical.
 
