@@ -1,23 +1,23 @@
 ---
 description: >-
-  Membrane's liquidation mechanism has 3 layers designed to have reduced effects
+  Membrane's liquidation mechanism has 2 layers designed to have reduced effects
   on a collateral's market price while improving distribution of & democratizing
   access to the liquidated assets
 ---
 
 # Liquidation Mechanism
 
-The 3 layers of the liquidation mechanism: **Liquidation Queue (LQ)**, **Stability Pool (SP)** and **open market sales**
+The 2 layers of the liquidation mechanism: **Liquidation Queue (LQ) aka Single-Asset Pool &** **Stability Pool (SP) aka Omni-Asset Pool**
 
 The **LQ** allows users to bid on specific collateral assets at a range of premium rates.&#x20;
 
-The **SP** acts as a backstop for the entire vault system, its funds used to liquidate for any collateral at a set premium. Since the **SP** gets 2ndary priority for liquidations, if the fee is too high the system's liquidation efficiency will drop as more assets are sent to the 3rd layer.
+The **SP** acts as a backstop for the entire vault system, its funds used to liquidate for any collateral at a set premium. Since the **SP** gets 2ndary priority for liquidations, if the fee is too high the system's liquidation efficiency will decrease but it must be high enough to attract deposits.
 
-As a final measure, any collateral positions that can't get liquidated by the first 2 steps will be sold on the market to avoid the protocol accruing bad debt. In the case it does, pending revenue and/or [MBRN auctions](../smart-contracts/mbrn-auction.md) will cover it, similar to [MakerDAO's Debt Auctions](https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol).
+If bad debt is accrued, pending revenue and/or [MBRN auctions](../smart-contracts/mbrn-auction.md) will cover it, similar to [MakerDAO's Debt Auctions](https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol).
 
 **Framing:** Think of the mechanism as a[ layered sifter.](https://twitter.com/lite\_trix/status/1623347765035016193?s=20\&t=VZpse4CI1YzxFn78PYgnMQ) Each level reduces the liquidation amount for the next until all CDT is covered.\
 \
-**Note: In the case of errors repaying from the liquidation contracts, the error will trigger the collateral to go through the DEX router to ensure all liquidations can be executed by 1 external call of the initial liquidation function.**
+**Note: It is assumed that sophisticated liquidators will source liquidity from outside of Osmosis long term but the foundational risk of our minting mechanism lies with Osmosis liquidity in a situation where all other DEX chains halt or can't fulfill trades.**
 
 ### Liquidator Fees
 
@@ -25,7 +25,7 @@ Smart contracts aren't autonomous so they need to be called by an external sourc
 
 _Ex: If a position's liquidation point is 80% LTV and the position gets to 81%, the caller's fee would be 1% of the liquidated collateral._
 
-The fee will keep increasing until a liquidator deems its profitable/desirable to liquidate, but if one waits too long they may lose the chance to capture the fee. This mechanism finds the lowest viable liquidation fee which benefits the user and the overall market.  Because the liquidator is only receiving the fee, there is a lower barrier for activation compared to systems where they need to liquidate the fee & the collateral.
+The fee will keep increasing until a liquidator deems its profitable/desirable to liquidate, but if one waits too long they may lose the chance to capture the fee. This mechanism finds the lowest viable liquidation fee which benefits the user and the overall market.  Because the liquidator is only receiving the fee, there is a lower barrier for activation compared to systems where they need to liquidate the fee & the collateral.&#x20;
 
 **Note: There is a configurable 1% fee controlled by governance to dissuade self-liquidations or stop-loss usage**\
 
