@@ -6,7 +6,7 @@
 
 * [Overview](protocol/overview/README.md)
   * [Asset Bundles](protocol/overview/asset-bundles.md)
-  * [Floating Peg](protocol/overview/floating-redemption-price.md)
+  * [Oscillating Peg](protocol/overview/oscillating-redemption-price.md)
   * [Interest Rates](protocol/overview/interest-rates.md)
 * [Liquidation Mechanism](protocol/liquidation-mechanism.md)
 * [Risk Management](protocol/risk-management.md)
@@ -35,5 +35,4 @@
 
 ## Technical Explanations
 
-* [Liquidation Mechanism](technical-explanations/liquidation-mechanism.md)
 * [Contract Map](technical-explanations/contract-map.md)

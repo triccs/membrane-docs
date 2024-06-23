@@ -1,4 +1,4 @@
-# Floating Peg
+# Oscillating Peg
 
 Membrane uses logic similar to a PID, pioneered by Reflexer Labs, which we call the **Credit Price Controller** to regulate the redemption price (peg) of CDT. The redemption price is altered by an "interest rate" or redemption rate that moves inverse to market conditions. \
 \
@@ -11,7 +11,7 @@ The **redemption price** doesn't directly affect market price, but it **influenc
 
 This system adopts a wider volatility range for long-term system optimality, decreasing the reliance on centralized collateral (i.e. existential risk). Some have even called negative redemption rates, "paying for decentralization". Without low volatility collateral, typically USDC, the peg trends above 1.00. Redemption rates & low volatility assets are tools to help the system repeg in an attempt to remove reliance on either.
 
-_Additional resources for understanding of the first floating peg system RAI:_
+_Additional resources for understanding of the first oscillating peg system RAI:_
 
 [https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd](https://medium.com/reflexer-labs/stability-without-pegs-8c6a1cbc7fbd)\
 [https://twitter.com/ameensol/status/1420048205127946246?s=20\&t=VVBsx8gveHSZr6hWhzIrNA](https://twitter.com/ameensol/status/1420048205127946246?s=20\&t=VVBsx8gveHSZr6hWhzIrNA)&#x20;
