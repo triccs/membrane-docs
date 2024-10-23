@@ -12,5 +12,5 @@ This means LPs can profitably provide liquidity at lower yields (note: currently
 
 **Note: All of these contracts accrue your positions ' discount before withdrawals**
 
-<table><thead><tr><th>Discount for</th><th>Qualifier</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>MBRN</strong></td><td><a href="../smart-contracts/staking.md">Staked</a> &#x26; based on market price. Includes pending rewards.</td><td></td></tr><tr><td><strong>CDT</strong></td><td>Deposit in <a href="../smart-contracts/stability-pool.md">Stability Pool</a> for 7 days. Includes pending incentives.</td><td></td></tr><tr><td><strong>LPs</strong></td><td>Any LPs in accepted CDT LP incentive gauges (minimum 7 day lock)</td><td></td></tr></tbody></table>
+<table><thead><tr><th>Discount for</th><th>Qualifier</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>MBRN</strong></td><td><a href="../smart-contracts/staking.md">Staked</a> &#x26; based on market price. Includes pending rewards.</td><td></td></tr><tr><td><strong>LPs</strong></td><td>Any LPs in accepted CDT LP incentive gauges (minimum 7 day lock)</td><td></td></tr></tbody></table>
 
