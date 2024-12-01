@@ -4,11 +4,12 @@ description: How does CDT incentivize stability?
 
 # Interest Rates
 
-As the debt cap utilization **for an asset** increases, the **variable rate** rises linearly towards the soft  "max" rate for the collateral type. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases. Rates will increase multiplicatively if the utilization continues past the soft max. Theoretically trending towards the market driven rate for the collateral type. **NOTE: Collateral assigned "rate hikes" will have higher rates that don't gradually increase but will still multiply once past the cap. These assets that tend to be yield bearing will also have redemptions force enabled at 99% of the peg.**
+Rates sit at their base rate until their individual supply caps are breached. Once breached, the rates begin to multiply for every percent over the cap to a max of 100%. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases.  Theoretically trending towards the market driven rate for the collateral type.\
+**NOTE: Collateral assigned "rate hikes" will have higher rates that will accrue additive rates when over cap instead of multiplicative. These assets, that tend to be yield bearing, will also have redemptions force enabled at 99% of the peg.**
 
-Below, the arrow represents the debt cap utilization for an asset & shows the current interest rate. As rates increase there is more pressure for vault owners to repay their loans, releasing pressure from liabilities in the system.
+Below, the arrow represents the debt cap utilization for an asset & a hypothetical interest rate. As rates increase there is more pressure for vault owners to repay their loans, releasing pressure from liabilities in the system.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Rates won't start at 0 unless there are being discounted due to an above peg depeg. <br>This is just to show the influence of rates on debt repayment</p></figcaption></figure>
 
 ## **Rate Influence 1: Price**&#x20;
 
@@ -16,19 +17,11 @@ The rates act as described above when the market price of **CDT** is within some
 
 The system operates optimally with a stable debt token which is why the system prioritizes stability incentives over short-term revenue.
 
-## Rate Influence 2: Liquidity
+## Rate Influence 2: Protocol Collateral Composition
 
-The debt cap is correlated to **CDT** liquidity. This translates to increased rates as liquidity decreases and decreased rates as it increases.&#x20;
+Collateral types are given maximum supply ratios (supply caps) which when broken, increases rates. These caps are then dynamically shrunk using volaility trackers explained below.
 
-**Note: Because rates are percentages, the incentives they create will have more effect on the CDT market as well-capitalized users enter the system. This means as CDT total supply fluctuates, its augmented stability & volatility will increase and decrease in correlation.**
-
-## Rate Influence 3: Collateral Composition
-
-Collateral types are given maximum supply ratios which when broken, increases rates.
-
-The collateral's ratio of outstanding debt is also used to influence rates based on the ratio of its debt cap fulfilled. Optimally we'd want to calculate the debt distribution bottoms up from each individual Position, but because the composition ratio will change as price moves, it's impossible to do efficiently (we'd have to calc each position's ratio's every time). So instead we use the Basket's collateral ratios to distribution debt & calculate rates. This method is feasible because collateral isn't accounted for unless there is open debt in the Position.&#x20;
-
-## Rate Influence 4: Volatility&#x20;
+## Rate Influence 3: Volatility&#x20;
 
 Once added to the basket, the collateral's price volatility is saved in 48 instances which culminates to a minimum 8 hours of volatility data. This data is used to calculate an average volatility that is compared to the current volatility during asset usage. If the new vol. is above the average, the asset's supply cap is reduced by the % difference. Otherwise if the new vol. is lower, the supply cap is increased by the average.
 
