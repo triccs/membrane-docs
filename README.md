@@ -1,8 +1,8 @@
 ---
 description: >-
-  Membrane is a evolutionary protocol that uses collateralized debt positions to
-  transform leverage into indestructible debt tokens that traverse the Cosmos in
-  the form of $CDT.
+  Membrane is an evolutionary protocol that uses collateralized debt positions
+  to transform leverage into indestructible debt tokens that traverse the Cosmos
+  in the form of $CDT.
 ---
 
 # What is Membrane?
