@@ -11,11 +11,11 @@ description: Non-exhaustive list of missions that benefit the community
 Each contract tab has valuable details and descriptions. [_What is Membrane?_](../) has a quick list of Membrane **U**nique **S**elling **P**ropostions & the [Overview](overview/#protocol-functions) has a condensed description of the main functionalities.\
 
 
-Create an alternative or run an instance of the first frontend: [https://github.com/triccs/membrane-frontend](https://github.com/triccs/membrane-frontend)
+Create an alternative or run an instance of the first frontend: [https://github.com/triccs/membrane-app](https://github.com/triccs/membrane-app)
+
+
 
 ## Content Prompts
-
-Note: Some of these have Quests on [Crew3](https://crew3.xyz/c/membrane/invite/rejnvMlwBp9hcATxkpC9e)
 
 ### Protocol
 
@@ -70,9 +70,7 @@ Invite people to:
 * Integrate with the protocol
 * Provide feedback on the protocol or community
 
-#### Hashtags&#x20;
+#### Cashtags&#x20;
 
 * $MBRN
 * $CDT
-* \#Wenbrane
-* ....

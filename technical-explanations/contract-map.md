@@ -1,5 +1,5 @@
 ---
-description: 'Green : Uses Oracle prices; Pink: Mints using Osmosis Proxy'
+description: 'Green : Uses Oracle prices; Pink: Mints using Osmosis Proxy (outdated)'
 ---
 
 # Contract Map

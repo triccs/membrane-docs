@@ -6,7 +6,7 @@ description: >-
 
 # Overview
 
-The mechanism is roughly analogous to a “Line of Credit”, wherein vault owners can deposit their collateral to receive a line of credit against it. This unique functionality enables a large amount of flexibility in otherwise rigid token positions.
+The mechanism is analogous to a “Line of Credit”, where vault owners can deposit their collateral to receive a line of credit against it. This functionality enables a large amount of flexibility in otherwise rigid token positions.
 
 ### Protocol Functions
 

@@ -11,6 +11,7 @@
 * [Liquidation Mechanism](protocol/liquidation-mechanism.md)
 * [Risk Management](protocol/risk-management.md)
 * [Collateral Redemptions](protocol/collateral-redemptions.md)
+* [Isolated Markets](protocol/isolated-markets.md)
 * [System Discounts](protocol/system-discounts.md)
 * [MBRN Tokenomics](protocol/mbrn-tokenomics.md)
 * [Potential Composability](protocol/potential-composability.md)

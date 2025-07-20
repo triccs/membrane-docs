@@ -1,8 +1,8 @@
 ---
 description: >-
-  Membrane is an experimental protocol that uses collateralized debt positions
-  to synthesize credit demand into composable debt tokens that traverse the
-  Cosmos in the form of $CDT.
+  Membrane is a evolutionary protocol that uses collateralized debt positions to
+  transform leverage into indestructible debt tokens that traverse the Cosmos in
+  the form of $CDT.
 ---
 
 # What is Membrane?
@@ -28,5 +28,5 @@ description: >-
 ## Unique User Interactions
 
 * [**Bundles** ](protocol/overview/asset-bundles.md)enable users to create low-volatility or diversified collateral risk profiles
-* **Self liquidate** with CDT held in the [Stability Pool](smart-contracts/stability-pool.md)
+* **Self liquidate** with CDT held in the [Stability Pool](smart-contracts/stability-pool.md) or Marketing Making Vault
 * Collateral [redemptions ](smart-contracts/positions.md#redeemcollateral)using CDT

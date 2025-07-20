@@ -1,3 +1,7 @@
+---
+description: (Not currently active to reduce friction during  initial supply bootstrapping)
+---
+
 # Oscillating Peg
 
 Membrane uses logic similar to a PID, pioneered by Reflexer Labs, which we call the **Credit Price Controller** to regulate the redemption price (peg) of CDT. The redemption price is altered by an "interest rate" or redemption rate that moves inverse to market conditions. \

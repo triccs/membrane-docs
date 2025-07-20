@@ -15,9 +15,9 @@ The **SP** acts as a backstop for the entire vault system, its funds used to liq
 
 If bad debt is accrued, pending revenue and/or [MBRN auctions](../smart-contracts/mbrn-auction.md) will cover it, similar to [MakerDAO's Debt Auctions](https://docs.makerdao.com/keepers/the-auctions-of-the-maker-protocol).
 
-**Framing:** Think of the mechanism as a[ layered sifter.](https://twitter.com/lite\_trix/status/1623347765035016193?s=20\&t=VZpse4CI1YzxFn78PYgnMQ) Each level reduces the liquidation amount for the next until all CDT is covered.\
+**Framing:** Think of the mechanism as a[ layered sifter.](https://twitter.com/lite_trix/status/1623347765035016193?s=20\&t=VZpse4CI1YzxFn78PYgnMQ) Each level reduces the liquidation amount for the next until all CDT is covered.\
 \
-**Note: It is assumed that sophisticated liquidators will source liquidity from outside of Osmosis long term but the foundational risk of our minting mechanism lies with Osmosis liquidity in a situation where all other DEX chains halt or can't fulfill trades.**
+**Note: It is assumed that sophisticated liquidators will source liquidity from outside of the native chain long term but the foundational risk of our minting mechanism lies within native liquidity, in a situation where all other DEX chains halt or can't fulfill trades.**
 
 ### Liquidator Fees
 
@@ -33,7 +33,17 @@ The fee will keep increasing until a liquidator deems its profitable/desirable t
 Additional Resources:&#x20;
 
 1\)[ ](https://docs.euler.finance/developers/architecture#front-running-protection)[https://docs.euler.finance/developers/architecture#front-running-protection](https://docs.euler.finance/developers/architecture#front-running-protection)\
-2\) [https://twitter.com/euler\_mab/status/1537091423748517889](https://twitter.com/euler\_mab/status/1537091423748517889)
+2\) [https://twitter.com/euler\_mab/status/1537091423748517889](https://twitter.com/euler_mab/status/1537091423748517889)
+
+
+
+### Automatic Debt Recovery&#x20;
+
+Membrane has a unique safety mechanism that will auto-recover CDT tokens from whitelisted venues within our system. The current whitelist includes the Stability Pool & the Market Making Vault (_**WARNING**_: _not on default deposits_).&#x20;
+
+If a user holds CDT in any whitelisted venue, the liquidation mechanism will signal to the venue to repay using the user's deposited CDT instead of selling the user's collateral to cover the debt. This allows minters to use CDT with the added safety of knowing their collateral is safe.\
+\
+This allows Membrane to proliferate CDT while reducing the active manangement costs & the collateral risk of leverage across the ecosystem.&#x20;
 
 ### System Benefits
 

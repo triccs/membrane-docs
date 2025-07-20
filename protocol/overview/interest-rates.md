@@ -4,7 +4,8 @@ description: How does CDT incentivize stability?
 
 # Interest Rates
 
-Rates sit at their base rate until their individual supply caps are breached. Once breached, the rates begin to multiply for every percent over the cap to a max of 100%. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases.  Theoretically trending towards the market driven rate for the collateral type.\
+Typically, rates will sit at their base rate until their individual supply caps are breached. Once breached, the rates begin to multiply for every percent over the cap to a max of 100%. This is to incentivize vault owners using those assets to pay back debts as the protocol's risk in that asset increases.  Theoretically trending towards the market driven rate for the collateral type.\
+\
 **NOTE: Collateral assigned "rate hikes" will have higher rates that will accrue additive rates when over cap instead of multiplicative. These assets, that tend to be yield bearing, will also have redemptions force enabled at 99% of the peg.**
 
 Below, the arrow represents the debt cap utilization for an asset & a hypothetical interest rate. As rates increase there is more pressure for vault owners to repay their loans, releasing pressure from liabilities in the system.
