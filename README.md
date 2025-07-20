@@ -30,3 +30,7 @@ description: >-
 * [**Bundles** ](protocol/overview/asset-bundles.md)enable users to create low-volatility or diversified collateral risk profiles
 * **Self liquidate** with CDT held in the [Stability Pool](smart-contracts/stability-pool.md) or Marketing Making Vault
 * Collateral [redemptions ](smart-contracts/positions.md#redeemcollateral)using CDT
+
+## Goal
+
+Become the credit plumbing layer of DeFi to mend inefficiencies & stabilize markets. Use this position as DeFi's mycellial network to forge CDT into the #1 unit of account and medium of exchange. Use these traits to become the new world reserve currency, reducing the power fiat has over the world & providing everyone with a stable escape hatch from centralized money.
